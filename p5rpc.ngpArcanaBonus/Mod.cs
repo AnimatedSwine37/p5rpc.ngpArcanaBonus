@@ -147,7 +147,7 @@ namespace p5rpc.ngpArcanaBonus
             { Confidant.Iwai, Item.Gecko_Pin },
             { Confidant.Twins, Item.Cell_Key },
             { Confidant.Yusuke, Item.Desire_and_Hope },
-            { Confidant.Yoshida, Item.Fountain_Pen },
+            { Confidant.Yoshida, Item.Fountain_Pen_16462 },
             { Confidant.Shinya, Item.Gun_Controller},
             { Confidant.Sae, Item.Business_Card },
             { Confidant.Sae_Friendzone, Item.Business_Card },
