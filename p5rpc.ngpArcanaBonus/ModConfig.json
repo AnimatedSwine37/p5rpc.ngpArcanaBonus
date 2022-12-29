@@ -1,0 +1,21 @@
+{
+  "ModId": "p5rpc.ngpArcanaBonus",
+  "ModName": "NG+ Arcana Bonus",
+  "ModAuthor": "AnimatedSwine37",
+  "ModVersion": "1.0.0",
+  "ModDescription": "Makes it so you always get the bonus for having a Persona of the matching Arcana if you have a confidant's max rank item",
+  "ModDll": "p5rpc.ngpArcanaBonus.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/p5rpc.ngpArcanaBonus.dll",
+  "ModR2RManagedDll64": "x64/p5rpc.ngpArcanaBonus.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "p5rpc.ngpArcanaBonus.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [ "reloaded.sharedlib.hooks", "Reloaded.Memory.SigScan.ReloadedII", "p5rpc.lib" ],
+  "OptionalDependencies": [],
+  "SupportedAppId": ["p5r.exe"],
+  "ProjectUrl": ""
+}

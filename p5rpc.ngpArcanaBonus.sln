@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p5rpc.ngpArcanaBonus", "p5rpc.ngpArcanaBonus\p5rpc.ngpArcanaBonus.csproj", "{9E2D08E0-593C-4261-AFEF-36CAE3955931}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63E72694-2796-4A94-ABFF-8A331195437E}
+	EndGlobalSection
+EndGlobal
