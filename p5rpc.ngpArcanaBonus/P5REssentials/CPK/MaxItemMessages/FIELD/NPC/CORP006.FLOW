@@ -1,0 +1,167 @@
+import("CORP006.BF");
+import("../../MaxItem.flow");
+
+void SUB_TALK_COOP_ANNE_hook()
+{
+    int var4;
+    
+    if ( BIT_CHK( 4863 ) )
+    {
+        SUB_CORP_JUMP_MSG_ANNE();
+        return;
+    }
+
+    SUB_BEGIN_MSG_ANNE();
+    
+    if ( ( sVar3 == -1 ) || ( sVar3 == 10 ) )
+    {
+        return;
+    }
+    else if ( sVar3 == 6 )
+    {
+        BIT_OFF( 4070 );
+        BIT_ON( 4389 );
+        
+        if ( BIT_CHK( 3794 ) )
+        {
+            BIT_ON( 1288 );
+        }
+
+        NET_SET_AFTER_SCHOOL_ACTION( 38 );
+        Fld_FadeOut_CallEvent();
+        SET_COUNT( 48, 4 );
+        CALL_EVENT( 795, 1 );
+        SUB_COOP_EVT_RESET();
+        return;
+    }
+
+    SUB_CORP_MSG_ANNE();
+    
+    if ( sVar3 == -1 )
+    {
+        return;
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+
+    SUB_COOP_START_MORGANA_MSG();
+    _25:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        var4 = SEL( SEL_COOP_CHECK_RANKUP );
+        MSG_WND_CLS();
+        
+        if ( var4 == 0 )
+        {
+            
+            if ( CMM_CHK_LVUP( sVar0 ) )
+            {
+                sVar3 = 1;
+                SUB_COOP_RANKUP_EVT();
+            }
+            else 
+            {
+                SUB_COOP_GENERAL_EVT_CHECK();
+            }
+
+            goto _26;
+        }
+        else if ( var4 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar3 = -1;
+            MSG_WND_DSP();
+            MSG( MSG_C06_COOP_CANCEL_00 );
+            MSG_WND_CLS();
+            goto _26;
+        }
+
+        goto _25;
+    }
+
+    _26:
+}
+void SUB_CORP_JUMP_MSG_ANNE_hook()
+{
+    int var29;
+    SUB_CORP_MSG_ANNE();
+    
+    if ( sVar3 == -1 )
+    {
+        return;
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+    SUB_COOP_START_MORGANA_MSG();
+    _276:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        var29 = SEL( SEL_COOP_CHECK_RANKUP );
+        MSG_WND_CLS();
+        
+        if ( var29 == 0 )
+        {
+            sVar3 = 1;
+            SUB_COOP_RANKUP_EVT();
+            goto _277;
+        }
+        else if ( var29 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar3 = -1;
+            MSG_WND_DSP();
+            MSG( MSG_C06_COOP_CANCEL_00 );
+            MSG_WND_CLS();
+            goto _277;
+        }
+
+        goto _276;
+    }
+
+    _277:
+}

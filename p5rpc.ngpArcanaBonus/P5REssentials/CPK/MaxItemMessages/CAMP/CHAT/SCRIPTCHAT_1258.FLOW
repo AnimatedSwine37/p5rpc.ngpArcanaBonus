@@ -1,0 +1,100 @@
+import("SCRIPTCHAT_1258.BF");
+import("../../MaxItem.flow");
+
+void CHAT_MAIN_hook()
+{
+    int var0;
+    int var1;
+    int var4;
+    int var3;
+    var0 = CHAT_GET_ARRIVAL_MONTH( -1 );
+    var1 = CHAT_GET_ARRIVAL_DAY( -1 );
+    var4 = 33;
+    
+    if ( CMM_EXIST( 34 ) == 1 )
+    {
+        var4 = 34;
+    }
+
+    MSG( MSG_000_0_0 );
+    MSG( MSG_001_0_0 );
+    MSG( MSG_002_0_0 );
+    
+    if ( CHAT_CHECK_READ( -1 ) == 1 )
+    {
+        
+        if ( CHAT_CHECK_SWITCH( -1 ) == 1 )
+        {
+            CHAT_SEL_LINE( 3, 0 );
+            MSG( CHAT_REACTION_01 );
+            MSG( CHAT_REACTION_02 );
+        }
+        else 
+        {
+            CHAT_SEL_LINE( 7, 0 );
+            MSG( CHAT_CANCEL_01 );
+            MSG( CHAT_CANCEL_02 );
+        }
+
+        CHAT_WND_DSP();
+        CHAT_WAIT_PAD();
+    }
+    else 
+    {
+        CMM_VSET_COMMUNITY( var4 );
+        
+        if ( CMM_CHK_ARCANA_PSSTOCKLV( var4 ) != 0 )
+        {
+            COOP_DOUZOKUSEI_MSG();
+        }
+            else
+            {
+                DispMaxItemMessage( var4 );
+            }
+
+        _13:
+        
+        if ( 1 )
+        {
+            COOP_RANKUP_MSG();
+            MSG_WND_DSP();
+            MSG( MSG_MORUGANA_PLAY_CHECK );
+            SEL_DEFKEY( 14, 2 );
+            var3 = SEL( SEL_COOP_PLAY_CHECK );
+            MSG_WND_CLS();
+            
+            if ( var3 == 0 )
+            {
+                CHAT_SET_SWITCH( -1, 1 );
+                CHAT_SET_SEL( -1, 0, var3 );
+                CHAT_SEL_LINE( 3, 0 );
+                MSG( CHAT_REACTION_01 );
+                MSG( CHAT_REACTION_02 );
+                CHAT_WND_CLS();
+                MSG_WND_DSP();
+                MSG( MSG_MORUGANA_PLAY_RESULT );
+                MSG_WND_CLS();
+                return;
+            }
+            else if ( var3 == 1 )
+            {
+                CALL_CONF_COOPERATION( var4, CMM_GET_LV( var4 ) );
+            }
+            else if ( var3 == 2 )
+            {
+                CHAT_SET_SWITCH( -1, 0 );
+                CHAT_SET_SEL( -1, 0, var3 );
+                CHAT_SEL_LINE( 7, 0 );
+                MSG( CHAT_CANCEL_01 );
+                MSG( CHAT_CANCEL_02 );
+                CHAT_WND_CLS();
+                MSG_WND_DSP();
+                MSG( MSG_MORUGANA_CANCEL_RESU );
+                MSG_WND_CLS();
+                return;
+            }
+
+            goto _13;
+        }
+
+    }

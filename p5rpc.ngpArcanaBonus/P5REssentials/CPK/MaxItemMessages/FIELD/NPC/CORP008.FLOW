@@ -1,0 +1,116 @@
+import("CORP008.BF");
+import("../../MaxItem.flow");
+
+void SUB_TALK_COOP_AKECHI_hook()
+{
+    int var3;
+    SUB_BEGIN_MSG_AKECHI();
+    
+    if ( ( sVar2 == -1 ) || ( sVar2 == 10 ) )
+    {
+        return;
+    }
+
+    SUB_CORP_MSG_AKECHI();
+    
+    if ( sVar2 == -1 )
+    {
+        return;
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+
+    SUB_COOP_START_MORGANA_MSG();
+    _14:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        
+        if ( CMM_GET_LV( sVar0 ) == 5 )
+        {
+            var3 = SEL( SEL_COOP_CHECK_R6_1 );
+        }
+        else if ( CMM_GET_LV( sVar0 ) == 7 )
+        {
+            var3 = SEL( SEL_COOP_CHECK_R8 );
+        }
+        else 
+        {
+            var3 = SEL( SEL_COOP_CHECK );
+        }
+
+        MSG_WND_CLS();
+        
+        if ( var3 == 0 )
+        {
+            
+            if ( CMM_CHK_LVUP( sVar0 ) )
+            {
+                sVar2 = 1;
+                SUB_COOP_RANKUP_EVT();
+            }
+            else 
+            {
+                SUB_COOP_GENERAL_EVT_CHECK();
+            }
+
+            goto _15;
+        }
+        else if ( var3 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar2 = -1;
+            
+            if ( CMM_CHK_LVUP( sVar0 ) )
+            {
+                
+                if ( CMM_GET_LV( sVar0 ) == 7 )
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_C08_COOP_CANCEL_08_R_2 );
+                    MSG_WND_CLS();
+                }
+                else 
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_C08_COOP_CANCEL_00 );
+                    MSG_WND_CLS();
+                }
+
+            }
+            else 
+            {
+                MSG_WND_DSP();
+                MSG( MSG_C08_COOP_CANCEL_00 );
+                MSG_WND_CLS();
+            }
+
+            goto _15;
+        }
+
+        goto _14;
+    }
+
+    _15:
+}

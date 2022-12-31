@@ -1,0 +1,136 @@
+import("SCRIPTCHAT_585.BF");
+import("../../MaxItem.flow");
+
+void CHAT_MAIN_hook()
+{
+    int var3;
+    int var4;
+    int var7;
+    int var5;
+    int var6;
+    var3 = CHAT_GET_ARRIVAL_MONTH( -1 );
+    var4 = CHAT_GET_ARRIVAL_DAY( -1 );
+    var7 = 15;
+    
+    if ( CMM_EXIST( 29 ) == 1 )
+    {
+        var7 = 29;
+    }
+
+    MSG( MSG_000_0_0 );
+    MSG( MSG_001_0_0 );
+    MSG( MSG_002_0_0 );
+    MSG( MSG_003_0_0 );
+    SET_MSG_VAR( 1, 5000, 0 );
+    MSG( MSG_004_0_0 );
+    
+    if ( CHAT_CHECK_READ( -1 ) == 1 )
+    {
+        CHAT_WND_DSP();
+        CHAT_WAIT_PAD();
+    }
+
+    
+    if ( CHAT_CHECK_SWITCH( -1 ) == 0 )
+    {
+        
+        if ( ( GET_DAY() == var4 ) && ( GET_MONTH() == var3 ) )
+        {
+            
+            if ( GET_TIME() == 5 )
+            {
+                
+                if ( BIT_CHK( 6147 ) == 1 )
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_MORUGANA_CORPNG );
+                    MSG_WND_CLS();
+                    CHAT_WND_CLS();
+                    return;
+                }
+
+                
+                if ( ( ( ( BIT_CHK( 4770 ) == 1 ) || ( BIT_CHK( 4772 ) == 1 ) ) || ( BIT_CHK( 4774 ) == 1 ) ) || ( BIT_CHK( 4776 ) == 1 ) )
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_MORUGANA_CORPNG2 );
+                    MSG_WND_CLS();
+                    CHAT_WND_CLS();
+                    return;
+                }
+
+                CMM_VSET_COMMUNITY( var7 );
+                
+                if ( CMM_CHK_ARCANA_PSSTOCKLV( var7 ) != 0 )
+                {
+                    COOP_DOUZOKUSEI_MSG();
+                }
+            else
+            {
+                DispMaxItemMessage( var7 );
+            }
+
+                var5 = 1;
+                _19:
+                
+                if ( var5 == 1 )
+                {
+                    COOP_RANKUP_MSG();
+                    
+                    if ( ( var3 == 11 ) && ( var4 >= 24 ) )
+                    {
+                        MSG_WND_DSP();
+                        MSG( MSG_CORP_PLAY_CHECK2 );
+                    }
+                    else if ( ( var3 == 12 ) && ( var4 <= 17 ) )
+                    {
+                        MSG_WND_DSP();
+                        MSG( MSG_CORP_PLAY_CHECK2 );
+                    }
+                    else 
+                    {
+                        MSG_WND_DSP();
+                        MSG( MSG_CORP_PLAY_CHECK1 );
+                    }
+
+                    SEL_DEFKEY( 14, 2 );
+                    var6 = SEL( SEL_001 );
+                    MSG_WND_CLS();
+                    
+                    if ( var6 == 0 )
+                    {
+                        CHAT_SET_SEL( -1, 0, 0 );
+                        CHAT_SEL_LINE( 11, 0 );
+                        CHAT_SET_SWITCH( -1, 1 );
+                        WAIT( 30 );
+                        MSG_WND_DSP();
+                        MSG_MIND( MND_MSG_01, 0 );
+                        MSG_WND_CLS();
+                        MSG_WND_DSP();
+                        MSG( MSG_MORUGANA_02 );
+                        MSG_WND_CLS();
+                        CHAT_WND_CLS();
+                        BIT_ON( 6270 );
+                        BIT_ON( 4863 );
+                        CHAT_SET_HOLD( -1, 0 );
+                        return;
+                    }
+                    else if ( var6 == 1 )
+                    {
+                        CALL_CONF_COOPERATION( var7, CMM_GET_LV( var7 ) );
+                    }
+                    else if ( var6 == 2 )
+                    {
+                        CHAT_WND_CLS();
+                        CHAT_SET_HOLD( -1, 1 );
+                        return;
+                    }
+
+                    goto _19;
+                }
+
+            }
+
+        }
+
+    }

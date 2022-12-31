@@ -1,0 +1,273 @@
+import("CORP004.BF");
+import("../../MaxItem.flow");
+
+void SUB_TALK_COOP_YUSUKE_hook()
+{
+    int var5;
+    int var4;
+    
+    if ( BIT_CHK( 3869 ) && ( BIT_CHK( 3868 ) == 0 ) )
+    {
+        var5 = FLD_SCRIPT_READ( 7001, 0, 0 );
+        FLD_SCRIPT_READ_SYNC( var5 );
+        FLD_SCRIPT_EXEC( var5, 0 );
+        FLD_SCRIPT_FREE( var5 );
+        
+        if ( BIT_CHK( 3620 ) == 0 )
+        {
+            BIT_ON( 3588 );
+        }
+
+        sVar3 = 21;
+        return;
+    }
+
+    
+    if ( ( CMM_GET_LV( sVar0 ) == 10 ) && ( BIT_CHK( 3620 ) == 1 ) )
+    {
+        
+        if ( ( BIT_CHK( 164 ) == 1 ) && ( BIT_CHK( 3300 ) == 0 ) )
+        {
+            SUB_COOP_YUSUKE_3RD_REVO();
+            return;
+        }
+
+    }
+
+    SUB_BEGIN_MSG_YUSUKE();
+    
+    if ( ( sVar3 == -1 ) || ( sVar3 == 10 ) )
+    {
+        return;
+    }
+    else if ( sVar3 == 6 )
+    {
+        BIT_OFF( 4068 );
+        BIT_ON( 4387 );
+        NET_SET_AFTER_SCHOOL_ACTION( 39 );
+        Fld_FadeOut_CallEvent();
+        SET_COUNT( 48, 5 );
+        CALL_EVENT( 795, 2 );
+        return;
+    }
+    else if ( sVar3 == 20 )
+    {
+        var5 = FLD_SCRIPT_READ( 7001, 0, 0 );
+        FLD_SCRIPT_READ_SYNC( var5 );
+        FLD_SCRIPT_EXEC( var5, 0 );
+        FLD_SCRIPT_FREE( var5 );
+        return;
+    }
+
+    
+    if ( CMM_EXIST( sVar0 ) == 0 )
+    {
+        SUB_PRECOOP_YUSUKE();
+        return;
+    }
+
+    SUB_CORP_MSG_YUSUKE();
+    
+    if ( ( ( ( sVar3 == -1 ) || ( sVar3 == 10 ) ) || ( sVar3 == 9 ) ) || ( sVar3 == 3 ) )
+    {
+        return;
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+
+    SUB_COOP_START_MORGANA_MSG();
+    _27:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        var4 = SEL( SEL_COOP_CHECK );
+        MSG_WND_CLS();
+        
+        if ( var4 == 0 )
+        {
+            
+            if ( CMM_CHK_LVUP( sVar0 ) )
+            {
+                sVar3 = 1;
+                SUB_TALK_COOP_EVT();
+            }
+            else 
+            {
+                SUB_COOP_GENERAL_EVT_CHECK();
+            }
+
+            goto _28;
+        }
+        else if ( var4 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar3 = -1;
+            MSG_WND_DSP();
+            MSG( MSG_C04_COOP_CANCEL_00 );
+            MSG_WND_CLS();
+            goto _28;
+        }
+
+        goto _27;
+    }
+
+    _28:
+}
+void SUB_COOP_MSG_RANK_5_hook()
+{
+    int var26;
+    int var28;
+    int var29;
+    
+    if ( BIT_CHK( 3870 ) == 0 )
+    {
+        MSG_WND_DSP();
+        MSG( MSG_C04_COOP_05_00 );
+        MSG_WND_CLS();
+    }
+    else 
+    {
+        MSG_WND_DSP();
+        MSG( MSG_C04_COOP_05_01 );
+        MSG_WND_CLS();
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+    SUB_COOP_START_MORGANA_MSG();
+    _297:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        var26 = SEL( SEL_COOP_CHECK );
+        MSG_WND_CLS();
+        
+        if ( var26 == 0 )
+        {
+            goto _298;
+        }
+        else if ( var26 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar3 = -1;
+            MSG_WND_DSP();
+            MSG( MSG_C04_COOP_CANCEL_00 );
+            MSG_WND_CLS();
+            return;
+        }
+
+        goto _297;
+    }
+
+    _298:
+    
+    if ( BIT_CHK( 3870 ) == 0 )
+    {
+        BIT_ON( 3870 );
+        BIT_ON( 3862 );
+        MSG_WND_DSP();
+        MSG( MSG_C04_YES_05_00 );
+        MSG_WND_CLS();
+        Fld_FadeOut_CallEvent();
+        CALL_EVENT( 704, 60 );
+        sVar3 = 9;
+        BIT_ON( 4836 );
+        
+        if ( GET_PC_PARAM_LV( 1, 2 ) >= 4 )
+        {
+            BIT_OFF( 4836 );
+            SUB_COOP_EVT_SET();
+            CMM_LVUP( sVar0 );
+            CALL_EVENT( 704, 62 );
+            var28 = CMM_GET_LV( sVar0 );
+            var29 = ( var28 - 1 );
+            
+            if ( CMM_CHK_RANKUP_EVENT_NEXT( 5, var29 ) == 1 )
+            {
+                CALL_EVENT( 700, 300 );
+            }
+
+            SUB_COOP_EVT_RESET();
+        }
+        else 
+        {
+            sVar3 = 3;
+        }
+
+    }
+    else if ( GET_PC_PARAM_LV( 1, 2 ) >= 4 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_C04_COOP_05_10, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG( MSG_C04_YES_05_10 );
+        MSG_WND_CLS();
+        BIT_OFF( 4836 );
+        CMM_LVUP( sVar0 );
+        sVar3 = 9;
+        SUB_COOP_EVT_SET();
+        Fld_FadeOut_CallEvent();
+        CALL_EVENT( 704, 61 );
+        CALL_EVENT( 704, 62 );
+        var28 = CMM_GET_LV( sVar0 );
+        var29 = ( var28 - 1 );
+        
+        if ( CMM_CHK_RANKUP_EVENT_NEXT( 5, var29 ) == 1 )
+        {
+            CALL_EVENT( 700, 300 );
+        }
+
+        SUB_COOP_EVT_RESET();
+    }
+    else 
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_C04_COOP_05_02, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG( MSG_C04_COOP_05_03 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG( MSG_C04_COOP_05_04 );
+        MSG_WND_CLS();
+        BIT_ON( 4836 );
+        sVar3 = -1;
+    }
+
+}

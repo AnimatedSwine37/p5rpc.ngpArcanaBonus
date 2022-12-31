@@ -1,0 +1,130 @@
+import("FSCR3120_010_000.BF");
+import("../../MaxItem.flow");
+
+void SUB_PHONE_COOP_KAWAKAMI_hook()
+{
+    int var13;
+    USE_CAFE_TELEPHONE();
+    SUB_BEGIN_MSG_KAWAKAMI();
+    
+    if ( ( sVar9 == -1 ) || ( sVar9 == 2 ) )
+    {
+        return;
+    }
+
+    SUB_CORP_MSG_KAWAKAMI();
+    
+    if ( ( sVar9 == -1 ) || ( sVar9 == 2 ) )
+    {
+        return;
+    }
+
+    
+    if ( CMM_GET_LV( sVar6 ) < 10 )
+    {
+        SET_MSG_VAR( 1, ADD_PC_MONEY( 0 ), 0 );
+        CALL_GLOBAL_MONEY_PANEL();
+        
+        if ( ADD_PC_MONEY( 0 ) <= 5000 )
+        {
+            MSG_WND_DSP();
+            MSG( MSG_MONEY_NG_MORGANA );
+            MSG( MSG_MONEY_NG );
+            MSG_WND_CLS();
+            DEL_GLOBAL_MONEY_PANEL();
+            sVar9 = -1;
+            return;
+        }
+
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar6 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG( MND_COOP_DOUZOKUSEI );
+        MSG_WND_CLS();
+    }
+            else
+            {
+                DispMaxItemMessage( sVar6 );
+            }
+
+    MSG_WND_DSP();
+    SUB_COOP_START_MORGANA_MSG();
+    _62:
+    
+    if ( 1 )
+    {
+        SEL_MASK( 1 );
+        SEL_DEFKEY( 14, 3 );
+        
+        if ( CMM_GET_LV( sVar6 ) == 6 )
+        {
+            var13 = SEL( SEL_COOP_CHK_RANK_6 );
+        }
+        else 
+        {
+            var13 = SEL( SEL_COOP_CHK );
+        }
+
+        MSG_WND_CLS();
+        
+        if ( var13 == 0 )
+        {
+            sVar9 = -1;
+            goto _63;
+        }
+        else if ( var13 == 1 )
+        {
+            sVar9 = 1;
+            MAIN_TALK_COOP_EVT();
+            goto _63;
+        }
+        else if ( var13 == 2 )
+        {
+            
+            if ( CMM_GET_LV( sVar6 ) < 10 )
+            {
+                DEL_GLOBAL_MONEY_PANEL();
+            }
+
+            SUB_COOP_PS_CHK();
+            
+            if ( CMM_GET_LV( sVar6 ) < 10 )
+            {
+                CALL_GLOBAL_MONEY_PANEL();
+            }
+
+        }
+        else if ( CMM_GET_LV( sVar6 ) < 10 )
+        {
+            DEL_GLOBAL_MONEY_PANEL();
+        }
+
+        sVar9 = -1;
+        MSG_WND_DSP();
+        
+        if ( CMM_GET_LV( sVar6 ) == 6 )
+        {
+            MSG( MSG_KAWAKAMI_COOP_CANCEL_2 );
+        }
+        else 
+        {
+            MSG( MSG_KAWAKAMI_COOP_CANCEL );
+        }
+
+        MSG_WND_CLS();
+        goto _63;
+        goto _62;
+    }
+
+    _63:
+}

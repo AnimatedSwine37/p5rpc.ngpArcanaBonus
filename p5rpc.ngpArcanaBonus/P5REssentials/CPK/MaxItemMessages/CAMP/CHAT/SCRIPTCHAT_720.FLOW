@@ -1,0 +1,92 @@
+import("SCRIPTCHAT_720.BF");
+import("../../MaxItem.flow");
+
+void CHAT_MAIN_hook()
+{
+    int var5;
+    int var6;
+    int var9;
+    int var8;
+    var5 = CHAT_GET_ARRIVAL_MONTH( -1 );
+    var6 = CHAT_GET_ARRIVAL_DAY( -1 );
+    var9 = 33;
+    MSG( MSG_000_0_0 );
+    MSG( MSG_001_0_0 );
+    
+    if ( CHAT_CHECK_READ( -1 ) == 1 )
+    {
+        
+        if ( CHAT_CHECK_SWITCH( -1 ) == 1 )
+        {
+            CHAT_SEL_LINE( 2, 0 );
+            MSG( CHAT_REACTION_01 );
+            MSG( CHAT_REACTION_02 );
+        }
+
+        CHAT_WND_DSP();
+        CHAT_WAIT_PAD();
+    }
+
+    
+    if ( CHAT_CHECK_SWITCH( -1 ) == 0 )
+    {
+        
+        if ( ( GET_DAY() == var6 ) && ( GET_MONTH() == var5 ) )
+        {
+            
+            if ( ( GET_TIME() == 4 ) || ( GET_TIME() == 3 ) )
+            {
+                CMM_VSET_COMMUNITY( var9 );
+                
+                if ( CMM_CHK_ARCANA_PSSTOCKLV( var9 ) != 0 )
+                {
+                    COOP_DOUZOKUSEI_MSG();
+                }
+            else
+            {
+                DispMaxItemMessage( var9 );
+            }
+
+                _15:
+                
+                if ( 1 )
+                {
+                    COOP_RANKUP_MSG();
+                    MSG_WND_DSP();
+                    MSG( MSG_MORUGANA_PLAY_CHECK );
+                    SEL_DEFKEY( 14, 2 );
+                    var8 = SEL( SEL_COOP_PLAY_CHECK );
+                    MSG_WND_CLS();
+                    
+                    if ( var8 == 0 )
+                    {
+                        CHAT_SET_SEL( -1, 0, 0 );
+                        CHAT_SEL_LINE( 2, 0 );
+                        MSG( CHAT_REACTION_01 );
+                        MSG( CHAT_REACTION_02 );
+                        CHAT_SET_SWITCH( -1, 1 );
+                        CHAT_WND_CLS();
+                        CHAT_SET_HOLD( -1, 0 );
+                        BIT_ON( 4863 );
+                        return;
+                    }
+                    else if ( var8 == 1 )
+                    {
+                        CALL_CONF_COOPERATION( var9, CMM_GET_LV( var9 ) );
+                    }
+                    else if ( var8 == 2 )
+                    {
+                        CHAT_WND_CLS();
+                        CHAT_SET_HOLD( -1, 1 );
+                        return;
+                    }
+
+                    goto _15;
+                }
+
+            }
+            else if ( GET_TIME() == 0 )
+            {
+                CHAT_SET_HOLD( -1, 1 );
+                Holiday_ChatNotSend();
+            }

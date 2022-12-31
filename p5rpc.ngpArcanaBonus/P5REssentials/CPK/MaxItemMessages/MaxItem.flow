@@ -1,0 +1,97 @@
+import("MaxItem.msg");
+
+void DispMaxItemMessage(int confidantId) {
+    int maxItemId = GetMaxItem(confidantId);
+    if( maxItemId == 0 ) return;
+    if ( GET_ITEM_NUM(maxItemId) > 0 )
+    {
+        SET_MSG_VAR( 0, maxItemId, 5 );
+        MSG_WND_DSP();
+        MSG_MIND( MaxItem, 0 );
+        MSG_WND_CLS();
+    }
+}
+
+int GetMaxItem(int confidantId) {
+    switch( confidantId ) {
+        case 3:
+        case 23:
+        return 16446; // Makoto - Buchi Calculator
+
+        case 4:
+        case 24:
+        return 16447; // Haru - Dyed Handkerchief
+
+        case 5:
+        return 16461; // Yusuke - Desire and Hope
+
+        case 6:
+        return 16457; // Sojiro - Recipe Notes
+
+        case 7:
+        case 25:
+        return 16448; // Ann - Fashion Magazine
+
+        case 8:
+        return 16455; // Ryuji - Sports Watch
+
+        case 9:
+        return 16465; // Akechi - Leather Gloves
+        
+        case 10:
+        case 26:
+        return 16449; // Futaba - Promise List
+
+        case 11:
+        case 27:
+        return 16452; // Chihaya - Fortune Tarot Card
+
+        case 12:
+        return 16460; // Twins - Cell Key
+
+        case 13:
+        return 16459; // Iwai - Gecko Pin
+
+        case 14:
+        case 28:
+        return 16451; // Takemi - Dog Tag
+
+        case 15:
+        case 29:
+        return 16450; // Kawakami - Unlimited Service
+
+        case 16:
+        case 30:
+        return 16453; // Ohya - Interview Notes
+
+        case 17:
+        return 16463; // Shinya - Gun Controller
+
+        case 18:
+        case 31:
+        return 16454; // Hifumi - Kosha Piece
+
+        case 19:
+        return 16458; // Mishima - Documentary Plans
+
+        case 20:
+        return 16462; // Yoshida - Fountain Pen
+
+        case 21:
+        case 32:
+        return 16464; // Sae - Business Card
+
+        case 33:
+        case 34:
+        case 36:
+        case 37:
+        return 16466; // Kasumi - Gymnastics Baton
+
+        case 35:
+        return 16467; // Maruki - Research Notes
+
+        default:
+        return 0;
+    }
+    return 0;
+}

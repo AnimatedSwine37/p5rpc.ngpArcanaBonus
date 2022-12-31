@@ -1,0 +1,121 @@
+import("CORP003.BF");
+import("../../MaxItem.flow");
+
+void SUB_TALK_COOP_HARU_hook()
+{
+    int var9;
+    SUB_BEGIN_MSG_HARU();
+    
+    if ( ( sVar3 == -1 ) || ( sVar3 == 10 ) )
+    {
+        return;
+    }
+    else if ( sVar3 == 6 )
+    {
+        BIT_OFF( 4067 );
+        BIT_ON( 4386 );
+        
+        if ( BIT_CHK( 3793 ) )
+        {
+            BIT_ON( 1288 );
+        }
+
+        NET_SET_AFTER_SCHOOL_ACTION( 42 );
+        Fld_FadeOut_CallEvent();
+        SET_COUNT( 48, 2 );
+        sVar3 = 1;
+        
+        if ( BIT_CHK( 95 ) )
+        {
+            CALL_EVENT( 795, 1 );
+        }
+        else 
+        {
+            CALL_EVENT( 795, 0 );
+        }
+
+        SUB_COOP_EVT_RESET();
+        return;
+    }
+    else if ( sVar3 == 20 )
+    {
+        SUB_REQUEST();
+        sVar3 = -1;
+        return;
+    }
+
+    
+    if ( CMM_EXIST( sVar0 ) == 0 )
+    {
+        SUB_PREOPEN_COOP_HARU();
+        return;
+    }
+
+    SUB_CORP_MSG_HARU();
+    
+    if ( sVar3 == -1 )
+    {
+        return;
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+
+    SUB_COOP_START_MORGANA_MSG();
+    _41:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        var9 = SEL( SEL_COOP_CHECK );
+        MSG_WND_CLS();
+        
+        if ( var9 == 0 )
+        {
+            
+            if ( CMM_CHK_LVUP( sVar0 ) )
+            {
+                sVar3 = 1;
+                SUB_TALK_COOP_EVT();
+            }
+            else 
+            {
+                SUB_COOP_GENERAL_EVT_CHECK();
+            }
+
+            goto _42;
+        }
+        else if ( var9 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar3 = -1;
+            MSG_WND_DSP();
+            MSG( MSG_C03_COOP_CANCEL_00 );
+            MSG_WND_CLS();
+            goto _42;
+        }
+
+        goto _41;
+    }
+
+    _42:
+}

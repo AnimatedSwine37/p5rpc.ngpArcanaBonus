@@ -1,0 +1,134 @@
+import("CORP009.BF");
+import("../../MaxItem.flow");
+
+void SUB_TALK_COOP_FUTABA_hook()
+{
+    int var6;
+    
+    if ( BIT_CHK( 4794 ) )
+    {
+        SUB_QUEST_SOJIRO();
+        return;
+    }
+
+    
+    if ( ( BIT_CHK( 3966 ) == 1 ) && ( BIT_CHK( 3967 ) == 0 ) )
+    {
+        SUB_BEGIN_MSG_FUTABA_ODA_PREOPEN();
+        BIT_ON( 3967 );
+        sVar3 = -1;
+        return;
+    }
+
+    
+    if ( ( BIT_CHK( 3967 ) == 1 ) && ( BIT_CHK( 3120 ) == 0 ) )
+    {
+        MSG_WND_DSP();
+        MSG( MSG_C09_ODA_99_00 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG( MSG_C09_ODA_99_01 );
+        MSG_WND_CLS();
+        sVar3 = -1;
+        return;
+    }
+
+    SUB_BEGIN_MSG_FUTABA();
+    
+    if ( ( sVar3 == -1 ) || ( sVar3 == 10 ) )
+    {
+        return;
+    }
+    else if ( sVar3 == 6 )
+    {
+        BIT_OFF( 4073 );
+        BIT_ON( 4392 );
+        
+        if ( BIT_CHK( 3795 ) )
+        {
+            BIT_ON( 1288 );
+        }
+
+        NET_SET_AFTER_SCHOOL_ACTION( 41 );
+        Fld_FadeOut_CallEvent();
+        SET_COUNT( 48, 6 );
+        sVar3 = 1;
+        CALL_EVENT( 795, 2 );
+        SUB_COOP_EVT_RESET();
+        return;
+    }
+
+    
+    if ( CMM_EXIST( sVar0 ) == 0 )
+    {
+        SUB_PRECOOP_FUTABA();
+    }
+
+    SUB_CORP_MSG_FUTABA();
+    
+    if ( ( sVar3 == -1 ) || ( sVar3 == 3 ) )
+    {
+        return;
+    }
+
+    
+    if ( BIT_CHK( 4051 ) == 0 )
+    {
+        CALL_TUTORIAL( 2, 4 );
+        BIT_ON( 4051 );
+    }
+
+    
+    if ( CMM_CHK_ARCANA_PSSTOCKLV( sVar0 ) != 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
+        MSG_WND_CLS();
+    }
+            else
+            {
+                DispMaxItemMessage( sVar0 );
+            }
+
+    SUB_COOP_START_MORGANA_MSG();
+    _40:
+    
+    if ( 1 )
+    {
+        SEL_DEFKEY( 14, 2 );
+        var6 = SEL( SEL_COOP_CHECK );
+        MSG_WND_CLS();
+        
+        if ( var6 == 0 )
+        {
+            
+            if ( CMM_CHK_LVUP( sVar0 ) )
+            {
+                sVar3 = 1;
+                SUB_TALK_COOP_EVT();
+            }
+            else 
+            {
+                SUB_COOP_GENERAL_EVT_CHECK();
+            }
+
+            goto _41;
+        }
+        else if ( var6 == 1 )
+        {
+            SUB_COOP_PS_CHK();
+        }
+        else 
+        {
+            sVar3 = -1;
+            MSG_WND_DSP();
+            MSG( MSG_C09_COOP_CANCEL_00 );
+            MSG_WND_CLS();
+            goto _41;
+        }
+
+        goto _40;
+    }
+
+    _41:
+}

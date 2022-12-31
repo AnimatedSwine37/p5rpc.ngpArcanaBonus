@@ -31,7 +31,7 @@
     <None Remove="Publish.ps1" />
     <None Remove="BuildLinked.ps1" />
     <None Remove="Reloaded.Trimming.targets" />
-    <None Remove="Reloaded.Checks.targets" />
+    <None Remove="Reloaded.Checks.targets" />   
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +42,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
+	<ItemGroup>
+		<None Include="P5REssentials\**\*.BF;P5REssentials\**\*.EVT;P5REssentials\**\*.TXT">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="p5rpc.lib.interfaces" Version="1.0.1" />

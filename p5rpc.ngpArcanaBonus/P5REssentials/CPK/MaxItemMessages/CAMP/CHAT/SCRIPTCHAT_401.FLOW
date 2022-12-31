@@ -1,0 +1,133 @@
+import("SCRIPTCHAT_401.BF");
+import("../../MaxItem.flow");
+
+void CHAT_MAIN_hook()
+{
+    int var0;
+    int var1;
+    int var3;
+    int var2;
+    var0 = CHAT_GET_ARRIVAL_MONTH( -1 );
+    var1 = CHAT_GET_ARRIVAL_DAY( -1 );
+    var3 = 3;
+    
+    if ( CMM_EXIST( 23 ) == 1 )
+    {
+        var3 = 23;
+    }
+
+    MSG( MSG_000_0_0 );
+    MSG( MSG_001_0_0 );
+    MSG( MSG_002_0_0 );
+    MSG( MSG_003_0_0 );
+    
+    if ( ( var0 == 11 ) && ( var1 >= 24 ) )
+    {
+        MSG( MSG_004_1_0 );
+        MSG( MSG_005_0_0 );
+        MSG( MSG_006_0_0 );
+    }
+    else if ( ( var0 == 12 ) && ( var1 <= 17 ) )
+    {
+        MSG( MSG_004_1_0 );
+        MSG( MSG_005_0_0 );
+        MSG( MSG_006_0_0 );
+    }
+    else 
+    {
+        MSG( MSG_004_0_0 );
+    }
+
+    
+    if ( CHAT_CHECK_READ( -1 ) == 1 )
+    {
+        
+        if ( CHAT_CHECK_SWITCH( -1 ) == 1 )
+        {
+            CHAT_SEL_LINE( 12, 0 );
+            MSG( CHAT_REACTION_01 );
+            MSG( CHAT_REACTION_02 );
+        }
+
+        CHAT_WND_DSP();
+        CHAT_WAIT_PAD();
+    }
+
+    
+    if ( ( GET_DAY() == var1 ) && ( GET_MONTH() == var0 ) )
+    {
+        
+        if ( ( GET_TIME() == 4 ) || ( GET_TIME() == 3 ) )
+        {
+            CMM_VSET_COMMUNITY( var3 );
+            
+            if ( CMM_CHK_ARCANA_PSSTOCKLV( var3 ) != 0 )
+            {
+                COOP_DOUZOKUSEI_MSG();
+            }
+            else
+            {
+                DispMaxItemMessage( var3 );
+            }
+
+            _18:
+            
+            if ( 1 )
+            {
+                COOP_RANKUP_MSG();
+                
+                if ( ( var0 == 11 ) && ( var1 >= 24 ) )
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_MAKOTO_CORP_PLAY_CHE_2 );
+                }
+                else if ( ( var0 == 12 ) && ( var1 <= 17 ) )
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_MAKOTO_CORP_PLAY_CHE_2 );
+                }
+                else 
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_MAKOTO_CORP_PLAY_CHE );
+                }
+
+                SEL_DEFKEY( 14, 2 );
+                var2 = SEL( SEL_001 );
+                MSG_WND_CLS();
+                
+                if ( var2 == 0 )
+                {
+                    CHAT_SET_SEL( -1, 0, 0 );
+                    CHAT_SEL_LINE( 12, 0 );
+                    MSG( CHAT_REACTION_01 );
+                    MSG( CHAT_REACTION_02 );
+                    CHAT_SET_SWITCH( -1, 1 );
+                    MSG_WND_DSP();
+                    MSG( MSG_MORUGANA_02 );
+                    MSG_WND_CLS();
+                    BIT_ON( 6270 );
+                    BIT_ON( 4863 );
+                    CHAT_SET_HOLD( -1, 0 );
+                    goto _19;
+                }
+                else if ( var2 == 1 )
+                {
+                    CALL_CONF_COOPERATION( var3, CMM_GET_LV( var3 ) );
+                }
+                else if ( var2 == 2 )
+                {
+                    CHAT_SET_HOLD( -1, 1 );
+                    goto _19;
+                }
+
+                goto _18;
+            }
+
+            _19:
+        }
+        else if ( GET_TIME() == 0 )
+        {
+            CHAT_SET_HOLD( -1, 1 );
+            Holiday_ChatNotSend();
+        }

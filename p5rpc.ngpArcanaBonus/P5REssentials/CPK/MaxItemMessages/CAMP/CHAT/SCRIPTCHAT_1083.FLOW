@@ -1,0 +1,91 @@
+import("SCRIPTCHAT_1083.BF");
+import("../../MaxItem.flow");
+
+void CHAT_MAIN_hook()
+{
+    int var2;
+    int var3;
+    int var6;
+    int var4;
+    int var5;
+    var2 = CHAT_GET_ARRIVAL_MONTH( -1 );
+    var3 = CHAT_GET_ARRIVAL_DAY( -1 );
+    var6 = 8;
+    MSG( MSG_000_0_0 );
+    MSG( MSG_001_0_0 );
+    
+    if ( CHAT_CHECK_READ( -1 ) == 1 )
+    {
+        
+        if ( CHAT_CHECK_SWITCH( -1 ) == 1 )
+        {
+            CHAT_SEL_LINE( 5, 0 );
+            MSG( MSG_REACTION );
+        }
+
+        CHAT_WND_DSP();
+        CHAT_WAIT_PAD();
+    }
+
+    
+    if ( CHAT_CHECK_SWITCH( -1 ) == 0 )
+    {
+        
+        if ( ( GET_DAY() == var3 ) && ( GET_MONTH() == var2 ) )
+        {
+            
+            if ( GET_TIME() == 5 )
+            {
+                CMM_VSET_COMMUNITY( var6 );
+                
+                if ( CMM_CHK_ARCANA_PSSTOCKLV( var6 ) != 0 )
+                {
+                    COOP_DOUZOKUSEI_MSG();
+                }
+            else
+            {
+                DispMaxItemMessage( var6 );
+            }
+
+                COOP_RANKUP_MSG();
+                var4 = 1;
+                _15:
+                
+                if ( var4 == 1 )
+                {
+                    MSG_WND_DSP();
+                    MSG( MSG_MORUGANA );
+                    SEL_DEFKEY( 14, 2 );
+                    var5 = SEL( SEL_001 );
+                    MSG_WND_CLS();
+                    
+                    if ( var5 == 0 )
+                    {
+                        CHAT_SET_SEL( -1, 0, 0 );
+                        CHAT_SEL_LINE( 5, 0 );
+                        MSG( MSG_REACTION );
+                        CHAT_SET_SWITCH( -1, 1 );
+                        CHAT_WND_CLS();
+                        BIT_ON( 6270 );
+                        BIT_ON( 4863 );
+                        CHAT_SET_HOLD( -1, 0 );
+                        return;
+                    }
+                    else if ( var5 == 1 )
+                    {
+                        CALL_CONF_COOPERATION( var6, CMM_GET_LV( var6 ) );
+                    }
+                    else if ( var5 == 2 )
+                    {
+                        MSG_WND_DSP();
+                        MSG( MSG_5R_TICKET_6521 );
+                        MSG_WND_CLS();
+                        CHAT_WND_CLS();
+                        CHAT_SET_HOLD( -1, 1 );
+                        return;
+                    }
+
+                    goto _15;
+                }
+
+            }
