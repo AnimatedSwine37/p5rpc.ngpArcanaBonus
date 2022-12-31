@@ -38,9 +38,6 @@
     <Content Include="ModConfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Update="Preview.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 	<ItemGroup>
@@ -69,6 +66,12 @@
   <ItemGroup>
     <Folder Include="DLCBox\Standalone\" />
     <Folder Include="DLCBox\WithDLCRework\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Preview.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
