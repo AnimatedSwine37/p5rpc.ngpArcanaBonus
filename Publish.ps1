@@ -162,7 +162,7 @@ param (
     $UseScriptDirectory=$True,
 
     ## => User Config <= ## 
-    $ProjectPath = "p5rpc.ngpArcanaBonus.csproj",
+    $ProjectPath = "p5rpc.ngpArcanaBonus/p5rpc.ngpArcanaBonus.csproj",
     $PackageName = "p5rpc.ngpArcanaBonus",
     $PublishOutputDir = "Publish/ToUpload",
 
