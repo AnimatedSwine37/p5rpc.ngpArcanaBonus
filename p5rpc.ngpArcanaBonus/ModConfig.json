@@ -1,27 +1,45 @@
 {
   "ModId": "p5rpc.ngpArcanaBonus",
-  "ModName": "NG+ Arcana Bonus",
+  "ModName": "NG\u002B Arcana Bonus",
   "ModAuthor": "AnimatedSwine37",
   "ModVersion": "1.0.0",
-  "ModDescription": "Makes it so you always get the bonus for having a Persona of the matching Arcana if you have a confidant's max rank item",
+  "ModDescription": "Makes it so you always get the bonus for having a Persona of the matching Arcana if you have a confidant\u0027s max rank item",
   "ModDll": "p5rpc.ngpArcanaBonus.dll",
   "ModIcon": "Preview.png",
   "ModR2RManagedDll32": "x86/p5rpc.ngpArcanaBonus.dll",
   "ModR2RManagedDll64": "x64/p5rpc.ngpArcanaBonus.dll",
   "ModNativeDll32": "",
   "ModNativeDll64": "",
+  "Tags": [],
+  "CanUnload": false,
+  "HasExports": false,
   "IsLibrary": false,
   "ReleaseMetadataFileName": "p5rpc.ngpArcanaBonus.ReleaseMetadata.json",
-  "PluginData": {},
+  "PluginData": {
+    "GitHubRelease": {
+      "UserName": "AnimatedSwine37",
+      "RepositoryName": "p5rpc.ngpArcanaBonus",
+      "UseReleaseTag": true,
+      "AssetFileName": "Mod.zip"
+    },
+    "GameBanana": {
+      "ItemType": "Mod",
+      "ItemId": 419845
+    }
+  },
   "IsUniversalMod": false,
   "ModDependencies": [
-    "reloaded.sharedlib.hooks",
-    "Reloaded.Memory.SigScan.ReloadedII",
+    "crifs.v2.hook",
     "p5rpc.lib",
     "p5rpc.modloader",
-    "crifs.v2.hook"
+    "Reloaded.Memory.SigScan.ReloadedII",
+    "reloaded.sharedlib.hooks"
   ],
-  "OptionalDependencies": [ "p5rpc.v.dlctweaks" ],
-  "SupportedAppId": ["p5r.exe"],
-  "ProjectUrl": ""
+  "OptionalDependencies": [
+    "p5rpc.v.dlctweaks"
+  ],
+  "SupportedAppId": [
+    "p5r.exe"
+  ],
+  "ProjectUrl": "https://gamebanana.com/mods/419845"
 }
