@@ -49,11 +49,26 @@
 		</None>
 	</ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+		<None Include="DLCBox\**\*.BF;">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
     <PackageReference Include="p5rpc.lib.interfaces" Version="1.0.1" />
     <PackageReference Include="Reloaded.Memory.SigScan.ReloadedII.Interfaces" Version="1.2.0" />
     <PackageReference Include="Reloaded.Mod.Interfaces" Version="2.3.0" ExcludeAssets="runtime" />
     <PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Submodules\CriFs.V2.Hook.ReloadedII\Interfaces\CriFs.V2.Hook.Interfaces\CriFs.V2.Hook.Interfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DLCBox\Standalone\" />
+    <Folder Include="DLCBox\WithDLCRework\" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using p5rpc.lib.interfaces;
+﻿using CriFs.V2.Hook.Interfaces;
+using CriFsV2Lib.Definitions;
+using p5rpc.lib.interfaces;
 using p5rpc.ngpArcanaBonus.Configuration;
 using p5rpc.ngpArcanaBonus.Template;
 using Reloaded.Hooks.Definitions;
@@ -77,6 +79,22 @@ namespace p5rpc.ngpArcanaBonus
             {
                 Utils.LogError($"Unable to get controller for P5R Lib, aborting initialisation");
                 return;
+            }
+
+            var criFsController = _modLoader.GetController<ICriFsRedirectorApi>();
+            if (criFsController == null || !criFsController.TryGetTarget(out var criFsApi))
+            {
+                Utils.LogError($"Unable to get controller for CriFs Lib, you will not be able to get unused max rank items from the dlc box.");
+            }
+            else
+            {
+                if (_modLoader.GetActiveMods().Any(m => m.Generic.ModId == "p5rpc.v.dlctweaks"))
+                {
+                    Utils.Log($"Full DLC Rework detected, using compatible file for cardboard box ng+ items");
+                    criFsApi.AddProbingPath(Path.Combine("DLCBox", "WithDLCRework"));
+                }
+                else
+                    criFsApi.AddProbingPath(Path.Combine("DLCBox", "Standalone"));
             }
 
             startupScanner.AddMainModuleScan("75 ?? 0F B7 CE 0F 1F 44 ?? 00", result =>

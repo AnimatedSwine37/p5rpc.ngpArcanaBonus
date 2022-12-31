@@ -1,0 +1,31 @@
+import("MaxItems.msg");
+
+void GetUnusedMaxItems()
+{
+    // Only give the items if in ng+
+    if(!BIT_CHK(11790))
+        return;
+
+    // Only give the items if the player has not already gotten them
+    if(GET_ITEM_NUM(16465) > 0 && GET_ITEM_NUM(16466) > 0 && GET_ITEM_NUM(16467) > 0)
+        return;
+
+    MSG_WND_DSP();
+    MSG_MIND( ItemsInBox, 0 );
+
+    for(int i = 0; i < 3; i++)
+    {
+        if(GET_ITEM_NUM(16465+i) == 0) {
+            SET_MSG_VAR( 0, 16465+i, 5 );
+            MSG_MIND( GetAkechiItem+i, 0 );
+            if(SEL(YesNo) == 0) {
+                GET_ITEM_WINDOW(16465+i, 1, 0);
+                SET_ITEM_NUM(16465+i, 1);
+            }
+        }
+    }
+    //if(GET_ITEM_NUM(16465) == 0 || GET_ITEM_NUM(16466) == 0 || GET_ITEM_NUM(16467) == 0 )
+        //MSG_MIND( LeftItemsRemoved, 0 );
+    MSG_WND_CLS();
+
+}

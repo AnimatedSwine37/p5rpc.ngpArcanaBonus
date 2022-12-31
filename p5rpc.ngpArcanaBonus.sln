@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "p5rpc.ngpArcanaBonus", "p5rpc.ngpArcanaBonus\p5rpc.ngpArcanaBonus.csproj", "{9E2D08E0-593C-4261-AFEF-36CAE3955931}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p5rpc.ngpArcanaBonus", "p5rpc.ngpArcanaBonus\p5rpc.ngpArcanaBonus.csproj", "{9E2D08E0-593C-4261-AFEF-36CAE3955931}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CriFs.V2.Hook.Interfaces", "Submodules\CriFs.V2.Hook.ReloadedII\Interfaces\CriFs.V2.Hook.Interfaces\CriFs.V2.Hook.Interfaces.csproj", "{ADDE0730-E460-42C5-BDEB-385B42780C0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E2D08E0-593C-4261-AFEF-36CAE3955931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADDE0730-E460-42C5-BDEB-385B42780C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDE0730-E460-42C5-BDEB-385B42780C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDE0730-E460-42C5-BDEB-385B42780C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDE0730-E460-42C5-BDEB-385B42780C0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

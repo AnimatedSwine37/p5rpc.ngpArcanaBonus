@@ -1,0 +1,2044 @@
+import("FSCR8000_001_000.BF");
+import( "../../../../MaxItems.msg" );
+import( "../../../../MaxItems.flow" );
+
+// Standalone
+void General_8000_001_000_hook()
+{
+
+    //MSG_WND_DSP();
+    //MSG_MIND( TestStandalone, 0 );
+    //MSG_WND_CLS();
+
+    int var24;
+    int var25;
+    int var26;
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var16;
+    int var17;
+    int var9;
+    int var18;
+    int var10;
+    int var19;
+    int var11;
+    int var20;
+    int var12;
+    int var21;
+    int var13;
+    int var22;
+    int var14;
+    int var23;
+    int var28;
+    int var27;
+    int var29;
+    int var15;
+    var24 = 0;
+    var25 = 0;
+    var26 = 0;
+    
+    if ( CHK_DAYS_STARTEND( 4, 2, 4, 11 ) == 1 )
+    {
+        return;
+    }
+
+    sVar3 = 0;
+    var4 = 0;
+    var5 = 0;
+    var6 = 0;
+    GET_ITEM_BUF_RESET();
+    
+    if ( GET_SYS_SCRIPT_FLAG( 12 ) == 1 )
+    {
+        
+        if ( BIT_CHK( 12037 ) == 0 )
+        {
+            BIT_ON( 12037 );
+            
+            if ( ( GET_ITEM_NUM( ( 0x4000 + 223 ) ) == 0 ) && ( GET_ITEM_NUM( ( 0x2000 + 234 ) ) == 0 ) )
+            {
+                MSG_WND_DSP();
+                MSG_MIND( MIND_MYPALACE_COMPLETE, 0 );
+                MSG_WND_CLS();
+                MSG_SYSTEM( SYSTEM_MYPALACE_COMPLETE );
+                SET_ITEM_NUM( ( 0x4000 + 223 ), ( GET_ITEM_NUM( ( 0x4000 + 223 ) ) + 1 ) );
+                SET_ITEM_NUM( ( 0x2000 + 234 ), ( GET_ITEM_NUM( ( 0x2000 + 234 ) ) + 1 ) );
+                GET_ITEM_BUF_SET( ( 0x2000 + 234 ), 0 );
+                GET_ITEM_BUF_SET( ( 0x4000 + 223 ), 0 );
+                GET_ITEMS_WINDOW( 0 );
+                GET_ITEM_BUF_RESET();
+            }
+
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12432 ) == 1 ) && ( BIT_CHK( 656 ) == 0 ) )
+    {
+        var7 = ( 28672 + 106 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _9:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 114 ) )
+            {
+                goto _10;
+            }
+
+            goto _9;
+        }
+
+        _10:
+        var7 = ( 28672 + 108 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 242 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 656 );
+    }
+
+    
+    if ( ( BIT_CHK( 12433 ) == 1 ) && ( BIT_CHK( 657 ) == 0 ) )
+    {
+        var7 = ( 28672 + 96 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _15:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 104 ) )
+            {
+                goto _16;
+            }
+
+            goto _15;
+        }
+
+        _16:
+        var7 = ( 28672 + 98 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 243 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 657 );
+    }
+
+    
+    if ( ( BIT_CHK( 12434 ) == 1 ) && ( BIT_CHK( 658 ) == 0 ) )
+    {
+        var7 = ( 28672 + 126 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _21:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 134 ) )
+            {
+                goto _22;
+            }
+
+            goto _21;
+        }
+
+        _22:
+        var7 = ( 28672 + 0x80 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 134 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 244 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 658 );
+    }
+
+    
+    if ( ( BIT_CHK( 12435 ) == 1 ) && ( BIT_CHK( 659 ) == 0 ) )
+    {
+        var7 = ( 28672 + 116 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _27:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 124 ) )
+            {
+                goto _28;
+            }
+
+            goto _27;
+        }
+
+        _28:
+        var7 = ( 28672 + 118 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 245 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 659 );
+    }
+
+    
+    if ( ( BIT_CHK( 12436 ) == 1 ) && ( BIT_CHK( 660 ) == 0 ) )
+    {
+        var7 = ( 28672 + 146 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _33:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 154 ) )
+            {
+                goto _34;
+            }
+
+            goto _33;
+        }
+
+        _34:
+        var7 = ( 28672 + 154 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 246 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 660 );
+    }
+
+    
+    if ( ( BIT_CHK( 12437 ) == 1 ) && ( BIT_CHK( 661 ) == 0 ) )
+    {
+        var7 = ( 28672 + 176 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _39:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 184 ) )
+            {
+                goto _40;
+            }
+
+            goto _39;
+        }
+
+        _40:
+        var7 = ( 0x2000 + 247 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 661 );
+    }
+
+    
+    if ( ( BIT_CHK( 12438 ) == 1 ) && ( BIT_CHK( 662 ) == 0 ) )
+    {
+        var7 = ( 28672 + 186 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _45:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 194 ) )
+            {
+                goto _46;
+            }
+
+            goto _45;
+        }
+
+        _46:
+        var7 = ( 0x2000 + 248 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 662 );
+    }
+
+    
+    if ( ( BIT_CHK( 12439 ) == 1 ) && ( BIT_CHK( 663 ) == 0 ) )
+    {
+        var7 = ( 28672 + 196 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _51:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 204 ) )
+            {
+                goto _52;
+            }
+
+            goto _51;
+        }
+
+        _52:
+        var7 = ( 28672 + 198 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 254 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 663 );
+    }
+
+    
+    if ( ( BIT_CHK( 12441 ) == 1 ) && ( BIT_CHK( 665 ) == 0 ) )
+    {
+        var7 = ( 28672 + 136 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _57:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 144 ) )
+            {
+                goto _58;
+            }
+
+            goto _57;
+        }
+
+        _58:
+        var7 = ( 28672 + 137 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 138 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 139 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 140 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 141 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 142 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 143 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 28672 + 144 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 253 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 665 );
+    }
+
+    
+    if ( ( BIT_CHK( 12453 ) == 1 ) && ( BIT_CHK( 666 ) == 0 ) )
+    {
+        var7 = ( 28672 + 26 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _63:
+        
+        if ( 1 )
+        {
+            
+            if ( ( var7 != ( 28672 + 28 ) ) && ( var7 != ( 28672 + 33 ) ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 34 ) )
+            {
+                goto _64;
+            }
+
+            goto _63;
+        }
+
+        _64:
+        var7 = ( 28672 + 36 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _69:
+        
+        if ( 1 )
+        {
+            
+            if ( ( var7 != ( 28672 + 38 ) ) && ( var7 != ( 28672 + 43 ) ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 44 ) )
+            {
+                goto _70;
+            }
+
+            goto _69;
+        }
+
+        _70:
+        var7 = ( 28672 + 46 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _75:
+        
+        if ( 1 )
+        {
+            
+            if ( ( var7 != ( 28672 + 48 ) ) && ( var7 != ( 28672 + 54 ) ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 54 ) )
+            {
+                goto _76;
+            }
+
+            goto _75;
+        }
+
+        _76:
+        var7 = ( 28672 + 56 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _81:
+        
+        if ( 1 )
+        {
+            
+            if ( var7 != ( 28672 + 58 ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 0x40 ) )
+            {
+                goto _82;
+            }
+
+            goto _81;
+        }
+
+        _82:
+        var7 = ( 28672 + 86 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _87:
+        
+        if ( 1 )
+        {
+            
+            if ( ( var7 == ( 28672 + 86 ) ) || ( var7 == ( 28672 + 93 ) ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 94 ) )
+            {
+                goto _88;
+            }
+
+            goto _87;
+        }
+
+        _88:
+        BIT_ON( 666 );
+    }
+
+    
+    if ( ( BIT_CHK( 12455 ) == 1 ) && ( BIT_CHK( 667 ) == 0 ) )
+    {
+        var7 = ( 28672 + 76 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _95:
+        
+        if ( 1 )
+        {
+            
+            if ( ( var7 != ( 28672 + 78 ) ) && ( var7 != ( 28672 + 84 ) ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 84 ) )
+            {
+                goto _96;
+            }
+
+            goto _95;
+        }
+
+        _96:
+        BIT_ON( 667 );
+    }
+
+    
+    if ( ( BIT_CHK( 12458 ) == 1 ) && ( BIT_CHK( 668 ) == 0 ) )
+    {
+        var7 = ( 28672 + 156 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _103:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 164 ) )
+            {
+                goto _104;
+            }
+
+            goto _103;
+        }
+
+        _104:
+        var7 = ( 28672 + 158 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 668 );
+    }
+
+    
+    if ( ( BIT_CHK( 12459 ) == 1 ) && ( BIT_CHK( 669 ) == 0 ) )
+    {
+        var7 = ( 28672 + 166 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _109:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 174 ) )
+            {
+                goto _110;
+            }
+
+            goto _109;
+        }
+
+        _110:
+        BIT_ON( 669 );
+    }
+
+    
+    if ( ( BIT_CHK( 12608 ) == 1 ) && ( BIT_CHK( 687 ) == 0 ) )
+    {
+        var7 = ( 28672 + 216 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _115:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 224 ) )
+            {
+                goto _116;
+            }
+
+            goto _115;
+        }
+
+        _116:
+        var7 = ( 0x2000 + 496 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 687 );
+    }
+
+    
+    if ( ( BIT_CHK( 12609 ) == 1 ) && ( BIT_CHK( 688 ) == 0 ) )
+    {
+        var7 = ( 28672 + 236 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _121:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 244 ) )
+            {
+                goto _122;
+            }
+
+            goto _121;
+        }
+
+        _122:
+        var7 = ( 28672 + 238 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        var7 = ( 0x2000 + 498 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 688 );
+    }
+
+    
+    if ( ( BIT_CHK( 12610 ) == 1 ) && ( BIT_CHK( 689 ) == 0 ) )
+    {
+        var7 = ( 28672 + 246 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _127:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 254 ) )
+            {
+                goto _128;
+            }
+
+            goto _127;
+        }
+
+        _128:
+        var7 = ( 0x2000 + 499 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 689 );
+    }
+
+    
+    if ( ( BIT_CHK( 12611 ) == 1 ) && ( BIT_CHK( 690 ) == 0 ) )
+    {
+        var7 = ( 28672 + 0x0100 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _133:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 264 ) )
+            {
+                goto _134;
+            }
+
+            goto _133;
+        }
+
+        _134:
+        var7 = ( 28672 + 266 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _137:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 274 ) )
+            {
+                goto _138;
+            }
+
+            goto _137;
+        }
+
+        _138:
+        var7 = ( 0x2000 + 500 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 690 );
+    }
+
+    
+    if ( ( BIT_CHK( 12612 ) == 1 ) && ( BIT_CHK( 691 ) == 0 ) )
+    {
+        var7 = ( 28672 + 66 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _143:
+        
+        if ( 1 )
+        {
+            
+            if ( var7 != ( 28672 + 68 ) )
+            {
+                SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            }
+
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 75 ) )
+            {
+                goto _144;
+            }
+
+            goto _143;
+        }
+
+        _144:
+        BIT_ON( 691 );
+    }
+
+    
+    if ( ( BIT_CHK( 12613 ) == 1 ) && ( BIT_CHK( 692 ) == 0 ) )
+    {
+        var7 = ( 28672 + 276 );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        _151:
+        
+        if ( 1 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var7 = ( var7 + 1 );
+            
+            if ( var7 > ( 28672 + 284 ) )
+            {
+                goto _152;
+            }
+
+            goto _151;
+        }
+
+        _152:
+        var7 = ( 0x2000 + 501 );
+        SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 9 ) );
+        sVar0 = var7;
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 692 );
+    }
+
+    
+    if ( ( BIT_CHK( 12614 ) == 1 ) && ( BIT_CHK( 693 ) == 0 ) )
+    {
+        SET_ITEM_NUM( ( 28672 + 125 ), ( GET_ITEM_NUM( ( 28672 + 125 ) ) + 1 ) );
+        sVar0 = ( 28672 + 125 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 135 ), ( GET_ITEM_NUM( ( 28672 + 135 ) ) + 1 ) );
+        sVar0 = ( 28672 + 135 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 105 ), ( GET_ITEM_NUM( ( 28672 + 105 ) ) + 1 ) );
+        sVar0 = ( 28672 + 105 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 115 ), ( GET_ITEM_NUM( ( 28672 + 115 ) ) + 1 ) );
+        sVar0 = ( 28672 + 115 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 245 ), ( GET_ITEM_NUM( ( 0x2000 + 245 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 245 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 244 ), ( GET_ITEM_NUM( ( 0x2000 + 244 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 244 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 243 ), ( GET_ITEM_NUM( ( 0x2000 + 243 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 243 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 242 ), ( GET_ITEM_NUM( ( 0x2000 + 242 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 242 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 693 );
+    }
+
+    
+    if ( ( BIT_CHK( 12615 ) == 1 ) && ( BIT_CHK( 694 ) == 0 ) )
+    {
+        SET_ITEM_NUM( ( 28672 + 155 ), ( GET_ITEM_NUM( ( 28672 + 155 ) ) + 1 ) );
+        sVar0 = ( 28672 + 155 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 205 ), ( GET_ITEM_NUM( ( 28672 + 205 ) ) + 1 ) );
+        sVar0 = ( 28672 + 205 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 265 ), ( GET_ITEM_NUM( ( 28672 + 265 ) ) + 1 ) );
+        sVar0 = ( 28672 + 265 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 275 ), ( GET_ITEM_NUM( ( 28672 + 275 ) ) + 1 ) );
+        sVar0 = ( 28672 + 275 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 246 ), ( GET_ITEM_NUM( ( 0x2000 + 246 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 246 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 254 ), ( GET_ITEM_NUM( ( 0x2000 + 254 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 254 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 500 ), ( GET_ITEM_NUM( ( 0x2000 + 500 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 500 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 694 );
+    }
+
+    
+    if ( ( BIT_CHK( 12616 ) == 1 ) && ( BIT_CHK( 695 ) == 0 ) )
+    {
+        SET_ITEM_NUM( ( 28672 + 85 ), ( GET_ITEM_NUM( ( 28672 + 85 ) ) + 1 ) );
+        sVar0 = ( 28672 + 85 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 165 ), ( GET_ITEM_NUM( ( 28672 + 165 ) ) + 1 ) );
+        sVar0 = ( 28672 + 165 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 245 ), ( GET_ITEM_NUM( ( 28672 + 245 ) ) + 1 ) );
+        sVar0 = ( 28672 + 245 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 285 ), ( GET_ITEM_NUM( ( 28672 + 285 ) ) + 1 ) );
+        sVar0 = ( 28672 + 285 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 185 ), ( GET_ITEM_NUM( ( 28672 + 185 ) ) + 1 ) );
+        sVar0 = ( 28672 + 185 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 498 ), ( GET_ITEM_NUM( ( 0x2000 + 498 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 498 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 501 ), ( GET_ITEM_NUM( ( 0x2000 + 501 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 501 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 247 ), ( GET_ITEM_NUM( ( 0x2000 + 247 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 247 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 695 );
+    }
+
+    
+    if ( ( BIT_CHK( 12617 ) == 1 ) && ( BIT_CHK( 696 ) == 0 ) )
+    {
+        SET_ITEM_NUM( ( 28672 + 195 ), ( GET_ITEM_NUM( ( 28672 + 195 ) ) + 1 ) );
+        sVar0 = ( 28672 + 195 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 35 ), ( GET_ITEM_NUM( ( 28672 + 35 ) ) + 1 ) );
+        sVar0 = ( 28672 + 35 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 45 ), ( GET_ITEM_NUM( ( 28672 + 45 ) ) + 1 ) );
+        sVar0 = ( 28672 + 45 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 55 ), ( GET_ITEM_NUM( ( 28672 + 55 ) ) + 1 ) );
+        sVar0 = ( 28672 + 55 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 65 ), ( GET_ITEM_NUM( ( 28672 + 65 ) ) + 1 ) );
+        sVar0 = ( 28672 + 65 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 145 ), ( GET_ITEM_NUM( ( 28672 + 145 ) ) + 1 ) );
+        sVar0 = ( 28672 + 145 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 255 ), ( GET_ITEM_NUM( ( 28672 + 255 ) ) + 1 ) );
+        sVar0 = ( 28672 + 255 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 28672 + 175 ), ( GET_ITEM_NUM( ( 28672 + 175 ) ) + 1 ) );
+        sVar0 = ( 28672 + 175 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 248 ), ( GET_ITEM_NUM( ( 0x2000 + 248 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 248 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 253 ), ( GET_ITEM_NUM( ( 0x2000 + 253 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 253 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        SET_ITEM_NUM( ( 0x2000 + 499 ), ( GET_ITEM_NUM( ( 0x2000 + 499 ) ) + 1 ) );
+        sVar0 = ( 0x2000 + 499 );
+        sVar1 = 0;
+        Set_DLC_Item();
+        BIT_ON( 696 );
+    }
+
+    
+    if ( ( BIT_CHK( 12442 ) == 1 ) && ( BIT_CHK( 670 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 670 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12443 ) == 1 ) && ( BIT_CHK( 671 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 671 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12444 ) == 1 ) && ( BIT_CHK( 672 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 672 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12445 ) == 1 ) && ( BIT_CHK( 673 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 673 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12446 ) == 1 ) && ( BIT_CHK( 674 ) == 0 ) )
+    {
+        var7 = ( 0x1000 + 206 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var6 = ( var6 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 674 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x1000 + 206 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 2 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12447 ) == 1 ) && ( BIT_CHK( 675 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 675 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12448 ) == 1 ) && ( BIT_CHK( 676 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 676 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12449 ) == 1 ) && ( BIT_CHK( 677 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 677 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12450 ) == 1 ) && ( BIT_CHK( 678 ) == 0 ) )
+    {
+        var7 = ( 0x1000 + 206 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var6 = ( var6 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 678 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x1000 + 206 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 2 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12451 ) == 1 ) && ( BIT_CHK( 679 ) == 0 ) )
+    {
+        var7 = ( 12288 + 14 );
+        var16 = 1;
+        var8 = ( 12288 + 24 );
+        var17 = 1;
+        var9 = ( 12288 + 0x10 );
+        var18 = 3;
+        
+        if ( ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) ) && ( GET_ITEM_NUM( var9 ) < 97 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + var16 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + var17 ) );
+            SET_ITEM_NUM( var9, ( GET_ITEM_NUM( var9 ) + var18 ) );
+            sVar0 = var7;
+            sVar1 = var16;
+            Set_DLC_Item();
+            sVar0 = var8;
+            sVar1 = var17;
+            Set_DLC_Item();
+            sVar0 = var9;
+            sVar1 = var18;
+            Set_DLC_Item();
+            BIT_ON( 679 );
+        }
+        else if ( GET_ITEM_NUM( ( 12288 + 14 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 19 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 12288 + 24 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 4 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 12288 + 0x10 ) ) >= 97 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 20 ) );
+        }
+
+    }
+
+    
+    if ( ( ( BIT_CHK( 12452 ) == 1 ) && ( BIT_CHK( 680 ) == 0 ) ) && ( BIT_CHK( 11490 ) == 1 ) )
+    {
+        
+        if ( ( ( ( ( ( ( ( ( ( ( ( ( GET_ITEM_NUM( ( 24576 + 386 ) ) < 97 ) && ( GET_ITEM_NUM( ( 24576 + 1 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 7 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 13 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 19 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 99 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 48 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 29 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 39 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 156 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 174 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 175 ) ) < 99 ) ) && ( GET_ITEM_NUM( ( 24576 + 176 ) ) < 99 ) )
+        {
+            SET_ITEM_NUM( ( 24576 + 386 ), ( GET_ITEM_NUM( ( 24576 + 386 ) ) + 3 ) );
+            var5 = ( var5 + 3 );
+            SET_ITEM_NUM( ( 24576 + 1 ), ( GET_ITEM_NUM( ( 24576 + 1 ) ) + 1 ) );
+            sVar0 = ( 24576 + 1 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 7 ), ( GET_ITEM_NUM( ( 24576 + 7 ) ) + 1 ) );
+            sVar0 = ( 24576 + 7 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 13 ), ( GET_ITEM_NUM( ( 24576 + 13 ) ) + 1 ) );
+            sVar0 = ( 24576 + 13 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 19 ), ( GET_ITEM_NUM( ( 24576 + 19 ) ) + 1 ) );
+            sVar0 = ( 24576 + 19 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 99 ), ( GET_ITEM_NUM( ( 24576 + 99 ) ) + 1 ) );
+            sVar0 = ( 24576 + 99 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 48 ), ( GET_ITEM_NUM( ( 24576 + 48 ) ) + 1 ) );
+            sVar0 = ( 24576 + 48 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 29 ), ( GET_ITEM_NUM( ( 24576 + 29 ) ) + 1 ) );
+            sVar0 = ( 24576 + 29 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 39 ), ( GET_ITEM_NUM( ( 24576 + 39 ) ) + 1 ) );
+            sVar0 = ( 24576 + 39 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 156 ), ( GET_ITEM_NUM( ( 24576 + 156 ) ) + 1 ) );
+            sVar0 = ( 24576 + 156 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 174 ), ( GET_ITEM_NUM( ( 24576 + 174 ) ) + 1 ) );
+            sVar0 = ( 24576 + 174 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 175 ), ( GET_ITEM_NUM( ( 24576 + 175 ) ) + 1 ) );
+            sVar0 = ( 24576 + 175 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            SET_ITEM_NUM( ( 24576 + 176 ), ( GET_ITEM_NUM( ( 24576 + 176 ) ) + 1 ) );
+            sVar0 = ( 24576 + 176 );
+            sVar1 = 1;
+            Set_DLC_Item();
+            BIT_ON( 680 );
+        }
+        else if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 97 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 1 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 6 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 7 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 7 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 13 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 8 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 19 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 9 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 99 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 10 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 48 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 11 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 29 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 12 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 39 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 13 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 156 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 14 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 174 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 15 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 175 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0x10 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 176 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 17 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12618 ) == 1 ) && ( BIT_CHK( 681 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 681 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12619 ) == 1 ) && ( BIT_CHK( 682 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 682 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12620 ) == 1 ) && ( BIT_CHK( 683 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        var8 = ( 24576 + 386 );
+        
+        if ( ( GET_ITEM_NUM( var7 ) < 99 ) && ( GET_ITEM_NUM( var8 ) < 99 ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            var5 = ( var5 + 1 );
+            BIT_ON( 683 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( ( 24576 + 386 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 1 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12621 ) == 1 ) && ( BIT_CHK( 684 ) == 0 ) )
+    {
+        var7 = ( 0x2000 + 196 );
+        
+        if ( GET_ITEM_NUM( var7 ) < 99 )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + 1 ) );
+            var4 = ( var4 + 1 );
+            BIT_ON( 684 );
+        }
+        else if ( GET_ITEM_NUM( ( 0x2000 + 196 ) ) >= 99 )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 0 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12626 ) == 1 ) && ( BIT_CHK( 686 ) == 0 ) )
+    {
+        var7 = ( 12288 + 6 );
+        var16 = 10;
+        var8 = ( 12288 + 14 );
+        var17 = 10;
+        var9 = ( 12288 + 0x10 );
+        var18 = 5;
+        var10 = ( 12288 + 0x40 );
+        var19 = 5;
+        var11 = ( 12288 + 38 );
+        var20 = 5;
+        var12 = ( 12288 + 40 );
+        var21 = 5;
+        var13 = ( 12288 + 42 );
+        var22 = 5;
+        var14 = ( 12288 + 44 );
+        var23 = 5;
+        
+        if ( ( ( ( ( ( ( ( GET_ITEM_NUM( var7 ) <= ( 99 - var16 ) ) && ( GET_ITEM_NUM( var8 ) <= ( 99 - var17 ) ) ) && ( GET_ITEM_NUM( var9 ) <= ( 99 - var18 ) ) ) && ( GET_ITEM_NUM( var10 ) <= ( 99 - var19 ) ) ) && ( GET_ITEM_NUM( var11 ) <= ( 99 - var20 ) ) ) && ( GET_ITEM_NUM( var12 ) <= ( 99 - var21 ) ) ) && ( GET_ITEM_NUM( var13 ) <= ( 99 - var22 ) ) ) && ( GET_ITEM_NUM( var14 ) <= ( 99 - var23 ) ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + var16 ) );
+            sVar0 = var7;
+            sVar1 = var16;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + var17 ) );
+            sVar0 = var8;
+            sVar1 = var17;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var9, ( GET_ITEM_NUM( var9 ) + var18 ) );
+            sVar0 = var9;
+            sVar1 = var18;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + var19 ) );
+            sVar0 = var10;
+            sVar1 = var19;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var11, ( GET_ITEM_NUM( var11 ) + var20 ) );
+            sVar0 = var11;
+            sVar1 = var20;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var12, ( GET_ITEM_NUM( var12 ) + var21 ) );
+            sVar0 = var12;
+            sVar1 = var21;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var13, ( GET_ITEM_NUM( var13 ) + var22 ) );
+            sVar0 = var13;
+            sVar1 = var22;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var14, ( GET_ITEM_NUM( var14 ) + var23 ) );
+            sVar0 = var14;
+            sVar1 = var23;
+            Set_DLC_Item();
+            BIT_ON( 686 );
+        }
+        else if ( GET_ITEM_NUM( var7 ) > ( 99 - var16 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 18 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var8 ) > ( 99 - var17 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 19 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var9 ) > ( 99 - var18 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 20 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var10 ) > ( 99 - var19 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 21 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var11 ) > ( 99 - var20 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 22 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var12 ) > ( 99 - var21 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 23 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var13 ) > ( 99 - var22 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 24 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var14 ) > ( 99 - var23 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 25 ) );
+        }
+
+    }
+
+    
+    if ( ( BIT_CHK( 12625 ) == 1 ) && ( BIT_CHK( 685 ) == 0 ) )
+    {
+        var7 = ( 12288 + 336 );
+        var16 = 10;
+        var8 = ( 12288 + 363 );
+        var17 = 5;
+        var9 = ( 12288 + 622 );
+        var18 = 5;
+        var10 = ( 12288 + 0x40 );
+        var19 = 5;
+        var11 = ( 12288 + 249 );
+        var20 = 10;
+        var12 = ( 12288 + 72 );
+        var21 = 5;
+        var22 = 100000;
+        
+        if ( ( ( ( ( ( ( GET_ITEM_NUM( var7 ) <= ( 99 - var16 ) ) && ( GET_ITEM_NUM( var8 ) <= ( 99 - var17 ) ) ) && ( GET_ITEM_NUM( var9 ) <= ( 99 - var18 ) ) ) && ( GET_ITEM_NUM( var10 ) <= ( 99 - var19 ) ) ) && ( GET_ITEM_NUM( var11 ) <= ( 99 - var20 ) ) ) && ( GET_ITEM_NUM( var12 ) <= ( 99 - var21 ) ) ) && ( ADD_PC_MONEY( 0 ) <= ( 9999999 - var22 ) ) )
+        {
+            SET_ITEM_NUM( var7, ( GET_ITEM_NUM( var7 ) + var16 ) );
+            sVar0 = var7;
+            sVar1 = var16;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + var17 ) );
+            sVar0 = var8;
+            sVar1 = var17;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var9, ( GET_ITEM_NUM( var9 ) + var18 ) );
+            sVar0 = var9;
+            sVar1 = var18;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + var19 ) );
+            sVar0 = var10;
+            sVar1 = var19;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var11, ( GET_ITEM_NUM( var11 ) + var20 ) );
+            sVar0 = var11;
+            sVar1 = var20;
+            Set_DLC_Item();
+            SET_ITEM_NUM( var12, ( GET_ITEM_NUM( var12 ) + var21 ) );
+            sVar0 = var12;
+            sVar1 = var21;
+            Set_DLC_Item();
+            ADD_PC_MONEY( var22 );
+            var25 = var22;
+            BIT_ON( 685 );
+        }
+        else if ( GET_ITEM_NUM( var7 ) > ( 99 - var16 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 26 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var8 ) > ( 99 - var17 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 27 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var9 ) > ( 99 - var18 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 28 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var10 ) > ( 99 - var19 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 21 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var11 ) > ( 99 - var20 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 29 ) );
+        }
+
+        
+        if ( GET_ITEM_NUM( var12 ) > ( 99 - var21 ) )
+        {
+            var26 = GET_OR( var26, GET_L_SHIFT( 1, 30 ) );
+        }
+
+        
+        if ( ADD_PC_MONEY( 0 ) > ( 9999999 - var22 ) )
+        {
+            var24 = 1;
+        }
+
+    }
+
+    
+    if ( var4 >= 1 )
+    {
+        sVar0 = ( 0x2000 + 196 );
+        sVar1 = var4;
+        Set_DLC_Item();
+    }
+
+    
+    if ( var5 >= 1 )
+    {
+        sVar0 = ( 24576 + 386 );
+        sVar1 = var5;
+        Set_DLC_Item();
+    }
+
+    
+    if ( var6 >= 1 )
+    {
+        sVar0 = ( 0x1000 + 206 );
+        sVar1 = var6;
+        Set_DLC_Item();
+    }
+
+    
+    if ( sVar2 > 0 )
+    {
+        GET_ITEMS_WINDOW( 0 );
+        GET_ITEM_BUF_RESET();
+    }
+
+    
+    if ( var25 > 0 )
+    {
+        GET_MONEY_WINDOW( var25, 0 );
+    }
+
+    var28 = 0;
+    _355:
+    
+    if ( var28 < 31 )
+    {
+        var27 = GET_L_SHIFT( 1, var28 );
+        
+        if ( GET_AND( var26, var27 ) == var27 )
+        {
+            
+            if ( var28 == 0 )
+            {
+                SET_MSG_VAR( 0, ( 0x2000 + 196 ), 5 );
+            }
+            else if ( var28 == 1 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 386 ), 5 );
+            }
+            else if ( var28 == 2 )
+            {
+                SET_MSG_VAR( 0, ( 0x1000 + 206 ), 5 );
+            }
+            else if ( var28 == 19 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 14 ), 5 );
+            }
+            else if ( var28 == 4 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 24 ), 5 );
+            }
+            else if ( var28 == 20 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 0x10 ), 5 );
+            }
+            else if ( var28 == 6 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 1 ), 5 );
+            }
+            else if ( var28 == 7 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 7 ), 5 );
+            }
+            else if ( var28 == 8 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 13 ), 5 );
+            }
+            else if ( var28 == 9 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 19 ), 5 );
+            }
+            else if ( var28 == 10 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 99 ), 5 );
+            }
+            else if ( var28 == 11 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 48 ), 5 );
+            }
+            else if ( var28 == 12 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 29 ), 5 );
+            }
+            else if ( var28 == 13 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 39 ), 5 );
+            }
+            else if ( var28 == 14 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 156 ), 5 );
+            }
+            else if ( var28 == 15 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 174 ), 5 );
+            }
+            else if ( var28 == 0x10 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 175 ), 5 );
+            }
+            else if ( var28 == 17 )
+            {
+                SET_MSG_VAR( 0, ( 24576 + 176 ), 5 );
+            }
+            else if ( var28 == 18 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 6 ), 5 );
+            }
+            else if ( var28 == 19 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 14 ), 5 );
+            }
+            else if ( var28 == 20 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 0x10 ), 5 );
+            }
+            else if ( var28 == 21 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 0x40 ), 5 );
+            }
+            else if ( var28 == 22 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 38 ), 5 );
+            }
+            else if ( var28 == 23 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 40 ), 5 );
+            }
+            else if ( var28 == 24 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 42 ), 5 );
+            }
+            else if ( var28 == 25 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 44 ), 5 );
+            }
+            else if ( var28 == 26 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 336 ), 5 );
+            }
+            else if ( var28 == 27 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 363 ), 5 );
+            }
+            else if ( var28 == 28 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 622 ), 5 );
+            }
+            else if ( var28 == 29 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 249 ), 5 );
+            }
+            else if ( var28 == 30 )
+            {
+                SET_MSG_VAR( 0, ( 12288 + 72 ), 5 );
+            }
+
+            
+            if ( sVar3 == 0 )
+            {
+                MSG_SYSTEM( SYSTEM_DLC_GET_TOP_Fiber );
+                sVar3 = 1;
+            }
+
+            
+            if ( ( var28 == 0 ) || ( var28 == 2 ) )
+            {
+                MSG_SYSTEM( SYSTEM_GET_GENERAL_UPPER_2 );
+            }
+            else 
+            {
+                MSG_SYSTEM( SYSTEM_GET_GENERAL_UPPER );
+            }
+
+        }
+
+        var28 = ( var28 + 1 );
+        goto _355;
+    }
+
+    
+    if ( var24 == 1 )
+    {
+        
+        if ( sVar3 == 0 )
+        {
+            MSG_SYSTEM( SYSTEM_DLC_GET_TOP_Fiber );
+            sVar3 = 1;
+        }
+
+        MSG_SYSTEM( SYSTEM_GET_MONEY_NG );
+    }
+
+    
+    if ( 0 )
+    {
+        MSG_WND_DSP();
+        MSG_SYSTEM( SYSTEM_CHECK_P5_SAVEDATA );
+        SEL_DEFKEY( 14, 1 );
+        var29 = SEL( SYSTEM_CHECK_P5_SAVEDATA_5 );
+        MSG_WND_CLS();
+        
+        if ( var29 == 0 )
+        {
+            var15 = CHECK_EXIST_BEFORE_SAVEDATA();
+            
+            if ( var15 == 1 )
+            {
+                BIT_ON( 12035 );
+            }
+            else 
+            {
+                _399:
+                
+                if ( 1 )
+                {
+                    MSG_WND_DSP();
+                    MSG_SYSTEM( SYSTEM_CHECK_P5_SAVEDATA_2 );
+                    SEL_DEFKEY( 14, 1 );
+                    var29 = SEL( SYSTEM_CHECK_P5_SAVEDATA_5 );
+                    MSG_WND_CLS();
+                    
+                    if ( var29 == 0 )
+                    {
+                        var15 = CHECK_EXIST_BEFORE_SAVEDATA();
+                        
+                        if ( var15 == 1 )
+                        {
+                            BIT_ON( 12035 );
+                            goto _400;
+                        }
+
+                    }
+                    else 
+                    {
+                        MSG_WND_DSP();
+                        MSG_SYSTEM( SYSTEM_CHECK_P5_SAVEDATA_3 );
+                        MSG_WND_CLS();
+                        goto _400;
+                    }
+
+                    goto _399;
+                }
+
+                _400:
+            }
+
+        }
+        else 
+        {
+            MSG_WND_DSP();
+            MSG_SYSTEM( SYSTEM_CHECK_P5_SAVEDATA_3 );
+            MSG_WND_CLS();
+        }
+
+    }
+
+    
+    if ( 0 )
+    {
+        MSG_SYSTEM( SYSTEM_GET_P5_SAVEDATA );
+        var8 = ( 12288 + 660 );
+        var17 = 3;
+        var9 = ( 12288 + 661 );
+        var18 = 3;
+        var19 = 50000;
+        
+        if ( ( ( GET_ITEM_NUM( var8 ) <= ( 99 - var17 ) ) && ( GET_ITEM_NUM( var9 ) <= ( 99 - var18 ) ) ) && ( ADD_PC_MONEY( 0 ) <= ( 9999999 - var19 ) ) )
+        {
+            SET_ITEM_NUM( var8, ( GET_ITEM_NUM( var8 ) + var17 ) );
+            SET_ITEM_NUM( var9, ( GET_ITEM_NUM( var9 ) + var18 ) );
+            SET_MSG_VAR( 1, var8, 5 );
+            SET_MSG_VAR( 2, var9, 5 );
+            GET_ITEM_BUF_RESET();
+            GET_ITEM_BUF_SET( var8, var17 );
+            GET_ITEM_BUF_SET( var9, var18 );
+            GET_ITEMS_WINDOW( 0 );
+            ADD_PC_MONEY( var19 );
+            GET_MONEY_WINDOW( var19, 0 );
+            BIT_ON( 12036 );
+        }
+        else if ( GET_ITEM_NUM( var8 ) > ( 99 - var17 ) )
+        {
+            SET_MSG_VAR( 0, var8, 5 );
+            MSG_SYSTEM( SYSTEM_GET_GENERAL_UPPER );
+        }
+
+        
+        if ( GET_ITEM_NUM( var9 ) > ( 99 - var18 ) )
+        {
+            SET_MSG_VAR( 0, var9, 5 );
+            MSG_SYSTEM( SYSTEM_GET_GENERAL_UPPER );
+        }
+
+        
+        if ( ADD_PC_MONEY( 0 ) > ( 9999999 - var19 ) )
+        {
+            MSG_SYSTEM( SYSTEM_GET_MONEY_NG );
+        }
+
+    }
+    
+    GetUnusedMaxItems();
+}
+

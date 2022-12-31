@@ -1,0 +1,419 @@
+
+// 
+// FlowScript decompiled using Atlus Script Tools by TGE (2017-2021)
+// In the unfortunate case of any bugs, please report them back to me.
+// 
+
+
+// 
+// Imports
+// 
+
+import( "FSCR8000_001_000.msg" );
+import( "../../../../MaxItems.msg" );
+import( "../../../../MaxItems.flow" );
+
+// 
+// Script-level variable definitions
+// 
+
+int sVar1;
+
+// 
+// Procedure declarations
+// 
+
+// With Full DLC Rework
+void General_8000_001_000()
+{
+
+    //MSG_WND_DSP();
+    //MSG_MIND( TestRework, 0 );
+    //MSG_WND_CLS();
+
+    int var4;
+    int var5;
+    int var6;
+    int var7;
+    int var8;
+    int var9;
+    int var30;
+    int var31;
+    int var33;
+    int var34;
+    int var32;
+    int var10;
+    var4 = 0;
+    var5 = 0;
+    var6 = 0;
+    
+    if ( CHK_DAYS_STARTEND( 4, 2, 4, 11 ) == 1 )
+    {
+        return;
+    }
+
+    sVar1 = 0;
+    var7 = 0;
+    var8 = 0;
+    var9 = 0;
+    GET_ITEM_BUF_RESET();
+    
+    if ( BIT_CHK( 12037 ) == 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MIND_MYPALACE_COMPLETETW, 0 );
+        var30 = SEL( MIND_MYPALACE_CHKONE );
+        MSG_WND_CLS();
+        
+        if ( var30 == 0 )
+        {
+            
+            if ( GET_ITEM_NUM( ( 0x4000 + 223 ) ) == 0 )
+            {
+                SET_ITEM_NUM( ( 0x4000 + 223 ), ( GET_ITEM_NUM( ( 0x4000 + 223 ) ) + 1 ) );
+                GET_ITEM_BUF_SET( ( 0x4000 + 223 ), 0 );
+                GET_ITEMS_WINDOW( 0 );
+                GET_ITEM_BUF_RESET();
+                MSG_SYSTEM( SYSTEM_MYPALACE_COMPLETE );
+            }
+            else 
+            {
+                MSG_WND_DSP();
+                MSG_MIND( MIND_MYPALACE_ALREADY, 0 );
+                MSG_WND_CLS();
+            }
+
+        }
+
+        MSG_WND_DSP();
+        MSG_MIND( MIND_MYPALACE_COMPLETE, 0 );
+        var30 = SEL( MIND_MYPALACE_CHKONE );
+        MSG_WND_CLS();
+        
+        if ( var30 == 0 )
+        {
+            
+            if ( GET_ITEM_NUM( ( 0x4000 + 234 ) ) == 0 )
+            {
+                SET_ITEM_NUM( ( 0x2000 + 234 ), ( GET_ITEM_NUM( ( 0x2000 + 234 ) ) + 1 ) );
+                GET_ITEM_BUF_SET( ( 0x2000 + 234 ), 0 );
+                GET_ITEMS_WINDOW( 0 );
+                GET_ITEM_BUF_RESET();
+                MSG_SYSTEM( SYSTEM_MYPALACE_COMPLETE );
+            }
+            else 
+            {
+                MSG_WND_DSP();
+                MSG_MIND( MIND_MYPALACE_ALREADY, 0 );
+                MSG_WND_CLS();
+            }
+
+        }
+
+        
+        if ( ( GET_ITEM_NUM( ( 0x4000 + 223 ) ) == 1 ) && ( GET_ITEM_NUM( ( 0x2000 + 234 ) ) == 1 ) )
+        {
+            BIT_ON( 12037 );
+        }
+
+    }
+
+    
+    if ( BIT_CHK( 656 ) == 0 )
+    {
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_OUTFITONE, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_SYSTEM( SYSTEM_DLC_OUTFITS );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_OUTFITTWO, 0 );
+        var31 = SEL( MIND_MYPALACE_CHKONE );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_ACCESSORIESONE, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_SYSTEM( SYSTEM_DLC_ACCESSORY );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_ACCESSORIESTWO, 0 );
+        var33 = SEL( MIND_MYPALACE_CHKONE );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_ITEMSONE, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_SYSTEM( SYSTEM_DLC_ITEMS );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_ITEMSTWO, 0 );
+        var34 = SEL( MIND_MYPALACE_CHKONE );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_MONEYONE, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_SYSTEM( SYSTEM_DLC_MONEY );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_MONEYTWO, 0 );
+        var32 = SEL( MIND_MYPALACE_CHKONE );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_MIND( MIND_DLC_NAOVANISH, 0 );
+        MSG_WND_CLS();
+        MSG_WND_DSP();
+        MSG_SYSTEM( SYSTEM_DLC_GET_TOP_Fiber );
+        MSG_WND_CLS();
+    }
+
+    
+    if ( ( BIT_CHK( 12432 ) == 1 ) && ( BIT_CHK( 656 ) == 0 ) )
+    {
+        
+        if ( var31 == 0 )
+        {
+            var10 = ( 28672 + 26 );
+            WhileConditionLabel_12:
+            
+            if ( var10 <= ( 28672 + 285 ) )
+            {
+                SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 1 ) );
+                var10 = ( var10 + 1 );
+                goto WhileConditionLabel_12;
+            }
+
+        }
+
+        
+        if ( var33 == 0 )
+        {
+            var10 = ( 0x2000 + 242 );
+            WhileConditionLabel_15:
+            
+            if ( var10 <= ( 0x2000 + 248 ) )
+            {
+                SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+                var10 = ( var10 + 1 );
+                goto WhileConditionLabel_15;
+            }
+
+            var10 = ( 0x2000 + 253 );
+            WhileConditionLabel_17:
+            
+            if ( var10 <= ( 0x2000 + 255 ) )
+            {
+                SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+                var10 = ( var10 + 1 );
+                goto WhileConditionLabel_17;
+            }
+
+            var10 = ( 0x2000 + 496 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+            var10 = ( 0x2000 + 498 );
+            WhileConditionLabel_19:
+            
+            if ( var10 <= ( 0x2000 + 501 ) )
+            {
+                SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+                var10 = ( var10 + 1 );
+                goto WhileConditionLabel_19;
+            }
+
+        }
+
+        
+        if ( var34 == 0 )
+        {
+            var10 = ( 12288 + 24 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 1 ) );
+            var10 = ( 12288 + 0x10 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 8 ) );
+            var10 = ( 12288 + 6 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+            var10 = ( 12288 + 14 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 11 ) );
+            var10 = ( 12288 + 0x40 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+            var10 = ( 12288 + 38 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 12288 + 40 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 12288 + 42 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 12288 + 44 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 12288 + 336 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+            var10 = ( 12288 + 363 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 12288 + 622 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 12288 + 249 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 10 ) );
+            var10 = ( 12288 + 72 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 5 ) );
+            var10 = ( 24576 + 386 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 12 ) );
+            var10 = ( 0x1000 + 206 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 2 ) );
+            var10 = ( 0x2000 + 196 );
+            SET_ITEM_NUM( var10, ( GET_ITEM_NUM( var10 ) + 11 ) );
+        }
+
+        
+        if ( var32 == 0 )
+        {
+            ADD_PC_MONEY( 100000 );
+        }
+
+        BIT_ON( 656 );
+    }
+
+    GetUnusedMaxItems();
+}
+
+
+// Procedure Index: 1
+void Set_DLC_Item()
+{
+    int var0;
+    int var2;
+    int var3;
+    
+    if ( var0 < 3 )
+    {
+        
+        if ( sVar1 == 0 )
+        {
+            MSG_SYSTEM( SYSTEM_DLC_GET_TOP_Fiber );
+            sVar1 = 1;
+        }
+
+        GET_ITEM_BUF_SET( var3, var2 );
+        var0 = ( var0 + 1 );
+    }
+    else 
+    {
+        GET_ITEM_BUF_SET( var3, var2 );
+        GET_ITEMS_WINDOW( 0 );
+        GET_ITEM_BUF_RESET();
+        var0 = 0;
+    }
+
+}
+
+
+// Procedure Index: 2
+void Fld_FadeOut_CallField()
+{
+    FADEOUT( 27, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 3
+void Fld_FadeOut_Crowd()
+{
+    FLD_REQ_SCN_CHANGE( 0 );
+}
+
+
+// Procedure Index: 4
+void Fld_FadeOut_CallEvent()
+{
+    FADEOUT( 15, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 5
+void Fld_FadeOut_CallCalendar()
+{
+    FADEOUT( 15, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 6
+void Fld_FadeOut_Default()
+{
+    FADEOUT( 0, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 7
+void Fld_FadeOut_Wait10()
+{
+    FADEOUT( 0, 10 );
+    FADE_SYNC();
+    WAIT( 10 );
+}
+
+
+// Procedure Index: 8
+void Fld_FadeIn_Default()
+{
+    FADEIN( 0, 20 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 9
+void Fld_FadeOut_Subway()
+{
+    FADEOUT( 8, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 10
+void Fld_FadeOut_Symbol()
+{
+    FADEOUT( 15, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 11
+void Fld_FadeOut_Rain()
+{
+    FADEOUT( 11, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 12
+void Fld_FadeOut_Cross()
+{
+    FADEOUT( 13, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 13
+void Fld_FadeOut_Parallel()
+{
+    FADEOUT( 14, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 14
+void Fld_FadeOut_CutChange()
+{
+    FADEOUT( 5, 10 );
+    FADE_SYNC();
+}
+
+
+// Procedure Index: 15
+void Fld_FadeOut_Velvet()
+{
+    FADEOUT( 19, 10 );
+    FADE_SYNC();
+}
+
