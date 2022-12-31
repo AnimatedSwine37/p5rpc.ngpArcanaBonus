@@ -1,0 +1,4 @@
+void GetNewspaperItem() {
+    GET_ITEM_WINDOW( 16467, 1, 0 );
+    SET_ITEM_NUM( 16467, GET_ITEM_NUM(16467) + 1);
+}

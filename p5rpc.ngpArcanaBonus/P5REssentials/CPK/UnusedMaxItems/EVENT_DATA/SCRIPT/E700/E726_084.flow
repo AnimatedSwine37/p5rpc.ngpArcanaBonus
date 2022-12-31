@@ -1,0 +1,7 @@
+import("E726_084.BF");
+
+void e726_080_03_item_get_hook()
+{
+    GET_ITEM_WINDOW( 16465, 1, 0 );
+    SET_ITEM_NUM( 16465, GET_ITEM_NUM(16465) + 1);
+}

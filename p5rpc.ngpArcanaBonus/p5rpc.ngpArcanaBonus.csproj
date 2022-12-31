@@ -44,7 +44,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<None Include="P5REssentials\**\*.BF;P5REssentials\**\*.EVT;P5REssentials\**\*.TXT">
+		<None Include="P5REssentials\**\*.BF;P5REssentials\**\*.EVT;P5REssentials\**\E*.TXT;P5REssentials\**\*.TBL;P5REssentials\**\*.PAK">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
