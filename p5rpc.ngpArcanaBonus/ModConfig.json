@@ -2,7 +2,7 @@
   "ModId": "p5rpc.ngpArcanaBonus",
   "ModName": "NG\u002B Arcana Bonus",
   "ModAuthor": "AnimatedSwine37",
-  "ModVersion": "1.0.0",
+  "ModVersion": "1.0.1",
   "ModDescription": "Makes it so you always get the bonus for having a Persona of the matching Arcana if you have a confidant\u0027s max rank item",
   "ModDll": "p5rpc.ngpArcanaBonus.dll",
   "ModIcon": "Preview.png",
