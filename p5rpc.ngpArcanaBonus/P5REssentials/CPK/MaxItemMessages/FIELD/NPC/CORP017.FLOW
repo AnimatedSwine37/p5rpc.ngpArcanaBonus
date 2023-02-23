@@ -48,11 +48,11 @@ void SUB_TALK_COOP_HIFUMI_hook()
         MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
         MSG_WND_CLS();
     }
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-
     SUB_COOP_START_MORGANA_MSG();
     _20:
     
@@ -151,11 +151,12 @@ void SUB_COOP_QUEST_hook()
             MSG_WND_CLS();
         }
 
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-        SUB_COOP_START_MORGANA_MSG();
+       SUB_COOP_START_MORGANA_MSG();
         _110:
         
         if ( 1 )
@@ -216,3 +217,5 @@ void SUB_COOP_QUEST_hook()
         MSG_WND_CLS();
         sVar3 = -1;
     }
+
+}

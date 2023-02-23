@@ -32,11 +32,11 @@ void SUB_TALK_COOP_AKECHI_hook()
         MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
         MSG_WND_CLS();
     }
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-
     SUB_COOP_START_MORGANA_MSG();
     _14:
     

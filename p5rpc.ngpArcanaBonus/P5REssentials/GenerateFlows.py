@@ -10,48 +10,19 @@ scrtipCompilerArgs = "-Compile -OutFormat V3BE -Library P5R -Encoding P5 -Hook"
 
 # Takes a string and the index of something inside of a function then returns just the function with _hook appended to it
 def MakeFunctionHook(text: str, startIndex: int, endIndex: int, varName: str, doneFunctions: list):
-    openBrackets = [i for i, c in enumerate(text[:startIndex]) if c == '{']
-    openBrackets.reverse()
-    closeBrackets = [i for i, c in enumerate(text[startIndex:]) if c == '}']
     functions = [m.span() for m in re.finditer(r"void .*\(\)", text)]
-    # print(f"Function indexes are {functions}")
-    # print(f"Open bracket indexes are {openBrackets}")
-    # print(f"Closed bracket indexes are {closeBrackets}")
 
     functionStartIndex = 0
     functionEndIndex = len(text) - 1
 
-    # Find start of function
-    for bracket in openBrackets:
-        # If the bracket is the start of a function
-        if bracket - 1 in [f[1] for f in functions]:
-            functionStartIndex = [f[0]
-                                  for f in functions if f[1] == bracket - 1][0]
-            break
+    startMatch = [m for m in re.finditer(r"^void .*\s{", text[:startIndex], re.M)][-1]
+    functionStartIndex = startMatch.start()
 
-    # Change open brackets to be from the start to end
-    openBrackets = [i for i, c in enumerate(text[startIndex:]) if c == '{']
-    functions = [m.span() for m in re.finditer(
-        r"void .*\(\)", text[startIndex:])]
-
-    # print(f"Open bracket indexes are {openBrackets}")
-    # print(f"Function indexes are {functions}")
-    # print("Text is")
-    # print(text[startIndex:])
-
-    # Find end of function
-    for i in range(len(closeBrackets)):
-        # If the bracket is the start of a function
-        if openBrackets[i] - 1 in [f[1] for f in functions]:
-            # functionAfterIndex = [f
-            #                  for f in functions if f[1] == openBrackets[i] - 1][0]
-            # print(f"Function after is {text[startIndex:][functionAfterIndex[0]:functionAfterIndex[1]]}")
-            # print(f"Close brackets is at {i}")
-            functionEndIndex = closeBrackets[i] + startIndex + 1
-            break
+    endMatch = [m for m in re.finditer(r"^}", text[startIndex:], re.M)][0]
+    functionEndIndex = endMatch.start() + startIndex + 1
 
     function = text[functionStartIndex:functionEndIndex]
-    endIndex = endIndex - functionStartIndex
+    endIndex = endIndex - functionStartIndex + 1
     addition = """
             else
             {
@@ -59,7 +30,7 @@ def MakeFunctionHook(text: str, startIndex: int, endIndex: int, varName: str, do
             }
 """.replace("{varName}", varName)
     function = function[:endIndex] + addition + function[endIndex + 1:]
-    
+
     text = text[:functionStartIndex] + function + text[functionEndIndex:]
 
     # print("Function is")
@@ -73,10 +44,10 @@ def MakeFunctionHook(text: str, startIndex: int, endIndex: int, varName: str, do
         functionName = functionNameSearch.group(2)
         existingFunctions = [x for x in doneFunctions if x[0] == functionName]
         if len(existingFunctions) > 0:
-            doneFunctions = [x for x in doneFunctions if x[0] != functionName] + [(functionName, function)]
+            doneFunctions = [x for x in doneFunctions if x[0]
+                             != functionName] + [(functionName, function)]
         else:
             doneFunctions = doneFunctions + [(functionName, function)]
-
 
     return (doneFunctions, text, len(addition))
 
@@ -104,7 +75,7 @@ def MakeFlows():
                 offset = 0
                 for item in found:
                     doneFunctions, fileText, newOffset = MakeFunctionHook(fileText,
-                                                                  item[0] + offset, item[1] + offset, item[2], doneFunctions)
+                                                                          item[0] + offset, item[1] + offset, item[2], doneFunctions)
                     offset = offset + newOffset
                 for doneFunction in doneFunctions:
                     function = function + doneFunction[1]

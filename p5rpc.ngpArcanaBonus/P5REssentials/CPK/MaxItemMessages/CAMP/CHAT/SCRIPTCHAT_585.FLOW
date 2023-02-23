@@ -65,11 +65,11 @@ void CHAT_MAIN_hook()
                 {
                     COOP_DOUZOKUSEI_MSG();
                 }
+
             else
             {
                 DispMaxItemMessage( var7 );
             }
-
                 var5 = 1;
                 _19:
                 
@@ -134,3 +134,17 @@ void CHAT_MAIN_hook()
         }
 
     }
+    else if ( ( GET_DAY() == var4 ) && ( GET_MONTH() == var3 ) )
+    {
+        
+        if ( GET_TIME() == 5 )
+        {
+            MSG_WND_DSP();
+            MSG( MSG_MORUGANA_03 );
+            MSG_WND_CLS();
+        }
+
+    }
+
+    CHAT_WND_CLS();
+}

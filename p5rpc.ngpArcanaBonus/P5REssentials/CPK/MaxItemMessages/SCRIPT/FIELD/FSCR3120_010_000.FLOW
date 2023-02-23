@@ -52,11 +52,11 @@ void SUB_PHONE_COOP_KAWAKAMI_hook()
         MSG( MND_COOP_DOUZOKUSEI );
         MSG_WND_CLS();
     }
+
             else
             {
                 DispMaxItemMessage( sVar6 );
             }
-
     MSG_WND_DSP();
     SUB_COOP_START_MORGANA_MSG();
     _62:

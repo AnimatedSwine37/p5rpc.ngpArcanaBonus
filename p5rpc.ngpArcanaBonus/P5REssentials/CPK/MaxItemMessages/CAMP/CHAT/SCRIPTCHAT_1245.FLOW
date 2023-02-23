@@ -47,11 +47,11 @@ void CHAT_MAIN_hook()
         {
             COOP_DOUZOKUSEI_MSG();
         }
+
             else
             {
                 DispMaxItemMessage( var4 );
             }
-
         _13:
         
         if ( 1 )
@@ -99,3 +99,6 @@ void CHAT_MAIN_hook()
         }
 
     }
+
+    CHAT_WND_CLS();
+}

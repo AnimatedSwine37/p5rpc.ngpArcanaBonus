@@ -59,11 +59,11 @@ void CHAT_MAIN_hook()
                 {
                     COOP_DOUZOKUSEI_MSG();
                 }
+
             else
             {
                 DispMaxItemMessage( var3 );
             }
-
                 _17:
                 
                 if ( 1 )
@@ -123,3 +123,10 @@ void CHAT_MAIN_hook()
                 CHAT_SET_HOLD( -1, 1 );
                 Holiday_ChatNotSend();
             }
+
+        }
+
+    }
+
+    CHAT_WND_CLS();
+}

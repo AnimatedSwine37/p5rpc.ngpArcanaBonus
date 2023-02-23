@@ -66,11 +66,11 @@ void SUB_TALK_COOP_MAKOTO_hook()
         MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
         MSG_WND_CLS();
     }
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-
     SUB_COOP_START_MORGANA_MSG();
     
     if ( CMM_CHK_LVUP( sVar0 ) == 1 )
@@ -156,11 +156,12 @@ void SUB_COOP_MSG_RANK_8_hook()
         MSG_WND_CLS();
     }
 
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-    SUB_COOP_START_MORGANA_MSG();
+   SUB_COOP_START_MORGANA_MSG();
     _192:
     
     if ( 1 )

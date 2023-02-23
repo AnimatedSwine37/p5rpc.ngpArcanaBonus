@@ -42,11 +42,11 @@ void CHAT_MAIN_hook()
                 MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
                 MSG_WND_CLS();
             }
+
             else
             {
                 DispMaxItemMessage( var4 );
             }
-
             var2 = 1;
             _13:
             
@@ -112,3 +112,8 @@ void CHAT_MAIN_hook()
             }
 
         }
+
+    }
+
+    CHAT_WND_CLS();
+}

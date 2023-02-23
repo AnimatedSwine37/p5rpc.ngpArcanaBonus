@@ -47,11 +47,11 @@ void SUB_TALK_COOP_ODA_hook()
         MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
         MSG_WND_CLS();
     }
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-
     SUB_COOP_START_MORGANA_MSG();
     _25:
     
@@ -150,11 +150,12 @@ void SUB_CORP_JUMP_MSG_ODA_hook()
             MSG_WND_CLS();
         }
 
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-        SUB_COOP_START_MORGANA_MSG();
+       SUB_COOP_START_MORGANA_MSG();
         _50:
         
         if ( 1 )
@@ -211,3 +212,5 @@ void SUB_CORP_JUMP_MSG_ODA_hook()
 
         _51:
     }
+
+}

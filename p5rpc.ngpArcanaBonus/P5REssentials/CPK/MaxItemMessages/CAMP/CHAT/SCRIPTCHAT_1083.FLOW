@@ -42,11 +42,11 @@ void CHAT_MAIN_hook()
                 {
                     COOP_DOUZOKUSEI_MSG();
                 }
+
             else
             {
                 DispMaxItemMessage( var6 );
             }
-
                 COOP_RANKUP_MSG();
                 var4 = 1;
                 _15:
@@ -89,3 +89,10 @@ void CHAT_MAIN_hook()
                 }
 
             }
+
+        }
+
+    }
+
+    CHAT_WND_CLS();
+}

@@ -85,11 +85,11 @@ void SUB_TALK_COOP_KAWAKAMI_hook()
                 MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
                 MSG_WND_CLS();
             }
+
             else
             {
                 DispMaxItemMessage( sVar165 );
             }
-
         }
 
     }
@@ -100,11 +100,12 @@ void SUB_TALK_COOP_KAWAKAMI_hook()
         MSG_WND_CLS();
     }
 
+
             else
             {
                 DispMaxItemMessage( sVar165 );
             }
-    SUB_COOP_START_MORGANA_MSG();
+   SUB_COOP_START_MORGANA_MSG();
     _959:
     
     if ( 1 )

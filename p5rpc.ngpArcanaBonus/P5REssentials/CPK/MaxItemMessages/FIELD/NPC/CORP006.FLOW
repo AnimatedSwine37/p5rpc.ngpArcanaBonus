@@ -56,11 +56,11 @@ void SUB_TALK_COOP_ANNE_hook()
         MSG_MIND( MND_COOP_DOUZOKUSEI, 0 );
         MSG_WND_CLS();
     }
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-
     SUB_COOP_START_MORGANA_MSG();
     _25:
     
@@ -128,11 +128,12 @@ void SUB_CORP_JUMP_MSG_ANNE_hook()
         MSG_WND_CLS();
     }
 
+
             else
             {
                 DispMaxItemMessage( sVar0 );
             }
-    SUB_COOP_START_MORGANA_MSG();
+   SUB_COOP_START_MORGANA_MSG();
     _276:
     
     if ( 1 )
